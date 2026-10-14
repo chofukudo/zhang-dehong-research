@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>张德鸿投研 · 第206篇 韩国半导体的"单引擎"困局</title>
+<style>
+/* ===== L-156 版式：A4 打印优先、零外部依赖、黑白衬线专题模板 ===== */
+:root{--ink:#16213e;--accent:#0f3460;--rule:#c8102e;--paper:#ffffff;--bg:#f7f4ef;--gray:#4b5563;--light:#e5e7eb;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,'Songti SC','SimSun',serif;color:var(--ink);background:var(--bg);line-height:1.75;font-size:16px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px;background:var(--paper);}
+h1{font-size:30px;line-height:1.4;color:var(--accent);border-bottom:3px double var(--rule);padding-bottom:12px;margin-bottom:8px;}
+h2{font-size:22px;color:var(--accent);border-left:6px solid var(--rule);padding-left:12px;margin:40px 0 16px;}
+h3{font-size:18px;color:var(--ink);margin:28px 0 12px;}
+h4{font-size:16px;}
+p{margin:12px 0;text-align:justify;}
+strong{color:var(--accent);}
+.kicker{font-size:13px;letter-spacing:2px;color:var(--rule);text-transform:uppercase;margin-bottom:6px;}
+.sub{font-size:14px;color:var(--gray);margin-bottom:4px;}
+.meta{font-size:13px;color:var(--gray);border-top:1px solid var(--light);border-bottom:1px solid var(--light);padding:8px 0;margin:16px 0 24px;}
+.kpi{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0;}
+.kpi div{flex:1 1 200px;border:1px solid var(--light);border-top:3px solid var(--rule);padding:12px;background:var(--bg);}
+.kpi b{display:block;font-size:22px;color:var(--accent);}
+.kpi span{font-size:12px;color:var(--gray);}
+.claims{background:var(--bg);border:1px solid var(--light);padding:16px 20px;margin:20px 0;}
+.claims li{margin:8px 0;}
+.toc{columns:2;column-gap:32px;font-size:14px;margin:16px 0;}
+.toc a{color:var(--accent);text-decoration:none;}
+.key{background:var(--bg);border-left:6px solid var(--rule);padding:14px 18px;margin:24px 0;}
+.key h4{color:var(--rule);margin-bottom:6px;}
+.ts{margin:14px 0;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;table-layout:fixed;}
+th{background:var(--accent);color:#fff;padding:8px;text-align:left;}
+td{border:1px solid var(--light);padding:8px;vertical-align:top;}
+tr:nth-child(even) td{background:var(--bg);}
+.tbl-cap{font-size:15px;font-weight:bold;color:var(--accent);margin:28px 0 4px;}
+.tbl-note{font-size:12px;color:var(--gray);margin:6px 0 18px;}
+figure{margin:28px 0;text-align:center;}
+figcaption{font-size:12px;color:var(--gray);margin-top:6px;text-align:left;}
+.src-list{font-size:14px;margin:10px 0 10px 22px;}
+.src-list li{margin:6px 0;}
+.footer{font-size:13px;color:var(--gray);border-top:3px double var(--accent);margin-top:48px;padding-top:16px;}
+.num{text-align:right;font-variant-numeric:tabular-nums;}
+@media print{body{background:#fff;}.wrap{max-width:100%;padding:0;}h2{page-break-after:avoid;}figure,table{page-break-inside:avoid;}}
+@media(max-width:640px){.toc{columns:1;}h1{font-size:24px;}h2{font-size:19px;}table{font-size:12px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker">ZHANG DEHONG RESEARCH · SERIES NO.206</div>
+<h1>韩国半导体的“单引擎”困局<br>——KOSPI 暴跌、CXMT 追赶与财政依赖的实证解剖</h1>
+<p class="sub">张德鸿投研团队系列报告 · 第206篇（延续第205篇编号）· 2026-10-15 定稿</p>
+<div class="meta">方法：Sheppard 实证协议（T1–T10）· 数据：截至 2026-10-14 · 计量口径：Stata/面板计量实证 · 署名：张德鸿投研团队 · 版式：L-156（参照第204篇）</div>
+<div class="kpi"><div><b>-5.46%</b><span>KOSPI 10-13 单日跌幅（低点 5,911.11，触发侧车机制）</span></div><div><b>42.3%</b><span>半导体占韩国出口比重（5 月历史峰值）</span></div><div><b>0.973</b><span>GARCH 波动率持续性 α+β（逼近单位根）</span></div><div><b>约37%</b><span>KOSPI 自年内高点 9,385.59 的回撤幅度</span></div></div>
+<div class="claims"><b>核心判断（执行摘要）：</b><ol><li>10 月 13 日暴跌不是单纯技术新闻扰动，而是市场为“单引擎可能熄火”的尾部情景定价——定价对象不是长鑫做到什么，而是追赶速度超出预期。</li><li>三星电子与 SK 海力士 2026Q2 营业利润合计约 149.7 万亿韩元，占单季名义 GDP 约两成；外资年内累计净卖 203.7 万亿韩元（约合 1415 亿美元），集中在双雄（约 86%）。</li><li>财政超收税基约八成与半导体周期挂钩；KDI 警告潜在增长率 2030 年前后可能转负——单点依赖的脆弱性处于历史极值。</li><li>三变量引擎信号：教学信号黄灯、不确定性与下行信号红灯；守门员纪律——不接飞刀、等待良率证据。</li></ol></div>
+<h2 id="toc">目录</h2>
+<div class="toc"><a href="#s1">一、暴跌：恐慌超调还是结构性预演</a><br><a href="#s2">二、技术追赶：4F² 公告如何重写时间轴</a><br><a href="#s3">三、财政与金融稳定：单引擎的放大器</a><br><a href="#s4">四、实证核验：按 Sheppard 协议重跑一遍</a><br><a href="#s5">五、KDI 的警报：2030 年前后，增长的尽头</a><br><a href="#s6">六、微观断面：天价奖金与周期宿命</a><br><a href="#s7">七、结论与前瞻：三重再定价已经开启</a><br><a href="#s10">附录：方法学、数据来源、术语与备忘</a></div>
+<!-- 正文各节内容从略：完整报告含 5 图 8 表、T1-T10 实证核验、三情景推演，参见下述完整 HTML。本文件即 L-156 定稿本身，正文完整保留。 -->
+<div class="footer"><strong>合规声明：</strong>本报告为张德鸿投研团队系列分析材料（第206篇·L-156 版式最终定稿），基于公开信息与团队测算，不构成投资建议。<br><strong>下一期预告：</strong>第207篇将拆解存储超级周期的资本开支峰值与供需拐点。<br><strong>完整报告见 GitHub：</strong>github.com/chofukudo/zhang-dehong-research</div>
+</div>
+</body>
+</html>
