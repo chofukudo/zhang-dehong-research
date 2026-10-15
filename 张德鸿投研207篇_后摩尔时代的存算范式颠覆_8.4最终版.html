@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>张德鸿投研团队专题报告 第207篇：后摩尔时代的存算范式颠覆——从北大RRAM模拟芯片看算力杠杆、制度套利与实证核验</title>
+<style>
+/* ============ L-156 排版定版（2026-09-22 起长期稳定） ============ */
+@page {
+  size: A4;
+  margin: 20mm 22mm 20mm 22mm;
+  @bottom-center {
+    content: "张德鸿投研团队 · 第207篇 ｜ 第 " counter(page) " 页 / 共 " counter(pages) " 页";
+    font-family: "SimSun","Songti SC",serif;
+    font-size: 8.5pt;
+    color: #6b7280;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "SimSun","Songti SC",Georgia,serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: #16213e;
+  background: #eeebe4;
+  margin: 0;
+  padding: 0;
+}
+@media print {
+  body { background: #ffffff; }
+  .card, .kpi-card, .key, .brief-anchor { box-shadow: none !important; }
+  thead { display: table-header-group; }
+  tr, th, td { page-break-inside: avoid; }
+  figure, table, .card, .key, .tbl-cap, .tbl-note { page-break-inside: avoid; }
+  figure svg { max-height: 76mm; }
+  h2, h3 { page-break-after: avoid; }
+}
+@media screen {
+  .page {
+    max-width: 210mm;
+    margin: 12mm auto;
+    background: #fffdf9;
+    box-shadow: 0 2px 14px rgba(26,26,46,0.14);
+    padding: 20mm 22mm;
+  }
+}
+.page { position: relative; }
+
+/* ---------- 封面 ---------- */
+.cover {
+  margin: -10mm -13mm 8mm -13mm;
+  padding: 22mm 15mm 14mm 15mm;
+  background: linear-gradient(160deg,#1a1a2e 0%,#16213e 45%,#0f3460 100%);
+  color: #f7f4ef;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  right: -40mm; top: -40mm;
+  width: 120mm; height: 120mm;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(255,217,102,0.16) 0%,rgba(255,217,102,0) 65%);
+}
+.cover .badge {
+  display: inline-block;
+  border: 1.2px solid #ffd966;
+  color: #ffd966;
+  font-size: 9pt;
+  letter-spacing: 0.35em;
+  padding: 2.5pt 10pt;
+  margin-bottom: 8mm;
+  font-family: Georgia,"Times New Roman",serif;
+}
+.cover .series {
+  font-size: 10.5pt;
+  color: #cbd5e1;
+  letter-spacing: 0.12em;
+  margin-bottom: 2mm;
+}
+.cover h1 {
+  font-size: 27pt;
+  line-height: 1.28;
+  color: #ffd966;
+  font-weight: 700;
+  margin: 4mm 0 3mm 0;
+  font-family: Georgia,"Songti SC","SimSun",serif;
+}
+.cover .subtitle {
+  font-size: 13pt;
+  color: #e8e4da;
+  line-height: 1.6;
+  margin-bottom: 6mm;
+}
+.cover .goldline {
+  border: 0;
+  border-top: 1.6px solid #F4B642;
+  width: 62mm;
+  margin: 4mm 0 6mm 0;
+}
+.cover .method {
+  font-size: 9.5pt;
+  color: #94a3b8;
+  line-height: 1.7;
+  max-width: 120mm;
+}
+.cover .snapshot {
+  margin-top: 8mm;
+  padding: 5mm 6mm;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,217,102,0.35);
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+  font-size: 9.5pt;
+  line-height: 1.75;
+  color: #f7f4ef;
+  max-width: 148mm;
+}
+.cover .snapshot b { color: #ffd966; }
+.cover .foot {
+  position: absolute;
+  bottom: 8mm; left: 15mm; right: 15mm;
+  display: flex; justify-content: space-between;
+  font-size: 8.5pt; color: #94a3b8;
+  border-top: 0.6px solid rgba(255,255,255,0.2);
+  padding-top: 3mm;
+}
+
+/* ---------- 摘要 ---------- */
+p.lead {
+  font-size: 11.5pt;
+  line-height: 1.75;
+  color: #16213e;
+  border-left: 3px solid #F4B642;
+  padding-left: 4mm;
+  margin: 6mm 0;
+}
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 3mm;
+  margin: 6mm 0;
+}
+.kpi-card {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  border-top: 2.5px solid #0f3460;
+  border-radius: 2px;
+  padding: 3.5mm 4mm;
+}
+.kpi-card .n { font-size: 15pt; font-weight: 700; color: #0f3460; font-family: Georgia,serif; }
+.kpi-card .l { font-size: 8.5pt; color: #6b7280; margin-top: 1mm; line-height: 1.5; }
+.claims { counter-reset: clm; margin: 5mm 0; }
+.claim { counter-increment: clm; display: flex; gap: 3mm; margin-bottom: 2.5mm; }
+.claim::before {
+  content: counter(clm);
+  min-width: 6.5mm; height: 6.5mm;
+  background: #0f3460; color: #ffd966;
+  border-radius: 50%;
+  font-size: 9.5pt; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 0.6mm;
+}
+.claim p { margin: 0; line-height: 1.6; }
+.matrix { margin: 6mm 0; }
+.matrix table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+.matrix th { background: #0f3460; color: #f7f4ef; }
+.matrix td, .matrix th { border: 0.6px solid #d8d0c6; padding: 2.5mm 3mm; text-align: left; vertical-align: top; }
+
+/* ---------- 目录 ---------- */
+.toc {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  padding: 5mm 6mm;
+  margin: 6mm 0;
+  page-break-inside: avoid;
+}
+.toc h3 { margin: 0 0 3mm 0; color: #0f3460; font-size: 12pt; }
+.toc ol { margin: 0; padding-left: 6mm; }
+.toc li { margin-bottom: 1.2mm; font-size: 9.5pt; }
+.toc a { color: #16213e; text-decoration: none; }
+
+/* ---------- 正文 ---------- */
+h2 {
+  font-size: 15pt;
+  color: #0f3460;
+  border-bottom: 1.4px solid #F4B642;
+  padding-bottom: 2mm;
+  margin: 9mm 0 4mm 0;
+  page-break-after: avoid;
+  font-family: Georgia,"Songti SC","SimSun",serif;
+}
+h3 {
+  font-size: 12pt;
+  color: #16213e;
+  margin: 5mm 0 2.5mm 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 3mm 0; text-align: justify; }
+p.kick {
+  margin: 4mm 0 5mm 0;
+  padding: 2.5mm 4mm;
+  background: #f7f4ef;
+  border-left: 3px solid #0f3460;
+  color: #0f3460;
+  font-weight: 700;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+strong { color: #1a1a2e; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- 图 ---------- */
+figure {
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+figure svg {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e5e0d6;
+  background: #ffffff;
+}
+figcaption {
+  font-size: 9pt;
+  color: #4b5563;
+  margin-top: 1.5mm;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+/* ---------- 表 ---------- */
+.tbl-cap {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #16213e;
+  margin: 5mm 0 1.5mm 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin: 0 0 2mm 0;
+}
+caption { caption-side: top; text-align: left; font-weight: 700; font-size: 10pt; padding-bottom: 1.5mm; }
+th {
+  background: #0f3460;
+  color: #f7f4ef;
+  font-weight: 700;
+  border: 0.6px solid #0f3460;
+  padding: 2.2mm 2.8mm;
+  text-align: left;
+}
+td {
+  border: 0.6px solid #d8d0c6;
+  padding: 2.2mm 2.8mm;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #faf8f3; }
+.tbl-note {
+  font-size: 8.5pt;
+  color: #6b7280;
+  margin: 1mm 0 4mm 0;
+  line-height: 1.55;
+}
+
+/* ---------- 卡片与关键框 ---------- */
+.card {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  border-radius: 2px;
+  padding: 4mm 5mm;
+  margin: 4mm 0;
+  page-break-inside: avoid;
+}
+.key {
+  background: #16213e;
+  color: #f7f4ef;
+  border-left: 4px solid #ffd966;
+  border-radius: 2px;
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+.key h4 { color: #ffd966; margin: 0 0 2.5mm 0; font-size: 11.5pt; }
+.key p { color: #f7f4ef; margin-bottom: 0; }
+
+/* ---------- BRIEF-ANCHOR 隐容器（双轨出版锚点，渲染隐藏） ---------- */
+.brief-anchor { display: none; }
+
+/* ---------- 页脚区/免责 ---------- */
+.footer {
+  margin-top: 10mm;
+  padding-top: 4mm;
+  border-top: 1px solid #d8d0c6;
+  font-size: 8.5pt;
+  color: #6b7280;
