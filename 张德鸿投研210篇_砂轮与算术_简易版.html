@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张德鸿投研210篇 · 砂轮与算术 · 简易版</title>
+<style>
+
+/* ============ L-156 排版定版（2026-09-22 起长期稳定，逐字节取自第156篇成品） ============ */
+@page {
+  size: A4;
+  margin: 20mm 22mm 20mm 22mm;
+  @bottom-center {
+    content: "张德鸿投研团队 · 第210篇 ｜ 第 " counter(page) " 页 / 共 " counter(pages) " 页";
+    font-family: "SimSun","Songti SC",serif;
+    font-size: 8.5pt;
+    color: #6b7280;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "SimSun","Songti SC",Georgia,serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: #16213e;
+  background: #eeebe4;
+  margin: 0;
+  padding: 0;
+}
+@media print {
+  body { background: #ffffff; }
+  .card, .kpi-card, .key, .brief-anchor { box-shadow: none !important; }
+  thead { display: table-header-group; }
+  tr, th, td { page-break-inside: avoid; }
+  figure, table, .card, .key, .tbl-cap, .tbl-note { page-break-inside: avoid; }
+  figure svg { max-height: 76mm; }
+  h2, h3 { page-break-after: avoid; }
+}
+@media screen {
+  .page {
+    max-width: 210mm;
+    margin: 12mm auto;
+    background: #fffdf9;
+    box-shadow: 0 2px 14px rgba(26,26,46,0.14);
+    padding: 20mm 22mm;
+  }
+}
+.page { position: relative; }
+
+/* ---------- 封面 ---------- */
+.cover {
+  margin: -10mm -13mm 8mm -13mm;
+  padding: 22mm 15mm 14mm 15mm;
+  background: linear-gradient(160deg,#1a1a2e 0%,#16213e 45%,#0f3460 100%);
+  color: #f7f4ef;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  right: -40mm; top: -40mm;
+  width: 120mm; height: 120mm;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(255,217,102,0.16) 0%,rgba(255,217,102,0) 65%);
+}
+.cover .cover-badge {
+  display: inline-block;
+  border: 1.2px solid #ffd966;
+  color: #ffd966;
+  font-size: 9pt;
+  letter-spacing: 0.35em;
+  padding: 2.5pt 10pt;
+  margin-bottom: 8mm;
+  font-family: Georgia,"Times New Roman",serif;
+}
+.cover .cover-series {
+  font-size: 10.5pt;
+  color: #cbd5e1;
+  letter-spacing: 0.12em;
+  margin-bottom: 2mm;
+}
+.cover .cover-title {
+  font-size: 27pt;
+  line-height: 1.28;
+  color: #ffd966;
+  font-weight: 700;
+  margin: 4mm 0 3mm 0;
+  font-family: Georgia,"Songti SC","SimSun",serif;
+}
+.cover .cover-sub {
+  font-size: 13pt;
+  color: #e8e4da;
+  line-height: 1.6;
+  margin-bottom: 6mm;
+}
+.cover .cover-goldline {
+  border: 0;
+  border-top: 1.6px solid #F4B642;
+  width: 62mm;
+  margin: 4mm 0 6mm 0;
+}
+.cover .cover-method {
+  font-size: 9.5pt;
+  color: #94a3b8;
+  line-height: 1.7;
+  max-width: 120mm;
+}
+.cover .cover-glass {
+  margin-top: 8mm;
+  padding: 5mm 6mm;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,217,102,0.35);
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+  font-size: 9.5pt;
+  line-height: 1.75;
+  color: #f7f4ef;
+  max-width: 152mm;
+}
+.cover .cover-glass b { color: #ffd966; }
+.cover .cover-foot {
+  position: absolute;
+  bottom: 8mm; left: 15mm; right: 15mm;
+  display: flex; justify-content: space-between;
+  font-size: 8.5pt; color: #94a3b8;
+  border-top: 0.6px solid rgba(255,255,255,0.2);
+  padding-top: 3mm;
+}
+
+/* ---------- 摘要 ---------- */
+p.lead {
+  font-size: 11.5pt;
+  line-height: 1.75;
+  color: #16213e;
+  border-left: 3px solid #F4B642;
+  padding-left: 4mm;
+  margin: 6mm 0;
+}
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 3mm;
+  margin: 6mm 0;
+}
+.kpi-b {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  border-top: 2.5px solid #0f3460;
+  border-radius: 2px;
+  padding: 3.5mm 4mm;
+}
+.kpi-b .n { font-size: 15pt; font-weight: 700; color: #0f3460; font-family: Georgia,serif; }
+.kpi-b .l { font-size: 8.5pt; color: #6b7280; margin-top: 1mm; line-height: 1.5; }
+.claims { counter-reset: clm; margin: 5mm 0; }
+.claim { counter-increment: clm; display: flex; gap: 3mm; margin-bottom: 2.5mm; }
+.claim::before {
+  content: counter(clm);
+  min-width: 6.5mm; height: 6.5mm;
+  background: #0f3460; color: #ffd966;
+  border-radius: 50%;
+  font-size: 9.5pt; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 0.6mm;
+}
+.claim p { margin: 0; line-height: 1.6; }
+.matrix { margin: 6mm 0; }
+.matrix table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+.matrix th { background: #0f3460; color: #f7f4ef; }
+.matrix td, .matrix th { border: 0.6px solid #d8d0c6; padding: 2.5mm 3mm; text-align: left; vertical-align: top; }
+
+/* ---------- 目录 ---------- */
+.toc {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  padding: 5mm 6mm;
+  margin: 6mm 0;
+  page-break-inside: avoid;
+}
+.toc h3 { margin: 0 0 3mm 0; color: #0f3460; font-size: 12pt; }
+.toc ol { margin: 0; padding-left: 6mm; }
+.toc li { margin-bottom: 1.2mm; font-size: 9.5pt; }
+.toc a { color: #16213e; text-decoration: none; }
+
+/* ---------- 正文 ---------- */
+h2 {
+  font-size: 15pt;
+  color: #0f3460;
+  border-bottom: 1.4px solid #F4B642;
+  padding-bottom: 2mm;
+  margin: 9mm 0 4mm 0;
+  page-break-after: avoid;
+  font-family: Georgia,"Songti SC","SimSun",serif;
+}
+h3 {
+  font-size: 12pt;
+  color: #16213e;
+  margin: 5mm 0 2.5mm 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 3mm 0; text-align: justify; }
+p.kick {
+  margin: 4mm 0 5mm 0;
+  padding: 2.5mm 4mm;
+  background: #f7f4ef;
+  border-left: 3px solid #0f3460;
+  color: #0f3460;
+  font-weight: 700;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+strong { color: #1a1a2e; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- 图 ---------- */
+figure {
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+figure svg {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e5e0d6;
+  background: #ffffff;
+}
+figcaption {
+  font-size: 9pt;
+  color: #4b5563;
+  margin-top: 1.5mm;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+/* ---------- 表 ---------- */
+.tbl-cap {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #16213e;
+  margin: 5mm 0 1.5mm 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin: 0 0 2mm 0;
+}
+caption { caption-side: top; text-align: left; font-weight: 700; font-size: 10pt; padding-bottom: 1.5mm; }
+th {
+  background: #0f3460;
+  color: #f7f4ef;
+  font-weight: 700;
+  border: 0.6px solid #0f3460;
+  padding: 2.2mm 2.8mm;
+  text-align: left;
+}
+td {
+  border: 0.6px solid #d8d0c6;
+  padding: 2.2mm 2.8mm;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #faf8f3; }
+.tbl-note {
+  font-size: 8.5pt;
+  color: #6b7280;
+  margin: 1mm 0 4mm 0;
+  line-height: 1.55;
+}
+
+/* ---------- 卡片与关键框 ---------- */
+.card {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  border-radius: 2px;
+  padding: 4mm 5mm;
+  margin: 4mm 0;
+  page-break-inside: avoid;
+}
+.key {
+  background: #16213e;
+  color: #f7f4ef;
+  border-left: 4px solid #ffd966;
+  border-radius: 2px;
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+.key h4 { color: #ffd966; margin: 0 0 2.5mm 0; font-size: 11.5pt; }
+.key p { color: #f7f4ef; margin-bottom: 0; }
+
+/* ---------- BRIEF-ANCHOR 隐容器（双轨出版锚点，渲染隐藏） ---------- */
+.brief-anchor { display: none; }
+
+/* ---------- 页脚区/免责 ---------- */
+.footer {
+  margin-top: 10mm;
+  padding-top: 4mm;
+  border-top: 1px solid #d8d0c6;
+  font-size: 8.5pt;
+  color: #6b7280;
+  line-height: 1.7;
+}
+.footer strong { color: #6b7280; }
+.src-list { font-size: 9pt; color: #4b5563; line-height: 1.8; }
+.src-list li { margin-bottom: 1mm; }
+
+</style>
+<style>
+.brief-wrap { max-width: 210mm; margin: 12mm auto; background: #fffdf9; box-shadow: 0 2px 14px rgba(26,26,46,0.14); padding: 20mm 22mm; }
+.b-eight > section { margin-bottom: 4mm; page-break-inside: avoid; }
+.b-eight h4 { font-size: 10.5pt; color: #0f3460; margin: 0 0 1.5mm 0; border-left: 3px solid #F4B642; padding-left: 2.5mm; }
+.b-eight p, .b-eight li { font-size: 10pt; line-height: 1.6; margin: 0 0 1.5mm 0; text-align: justify; }
+.b-eight ul { margin: 0; padding-left: 5mm; }
+.b-title { background: linear-gradient(160deg,#1a1a2e 0%,#16213e 45%,#0f3460 100%); color: #ffd966; padding: 6mm 7mm; margin-bottom: 5mm; }
+.b-title .no { font-size: 9pt; color: #cbd5e1; letter-spacing: 0.15em; }
+.b-title h1 { font-size: 19pt; color: #ffd966; margin: 1.5mm 0 1mm 0; font-family: Georgia,"Songti SC","SimSun",serif; }
+.b-title .d { font-size: 9pt; color: #e8e4da; }
+.b-hook { background: #f7f4ef; border-left: 3px solid #0f3460; padding: 3mm 4mm; font-size: 9pt; color: #16213e; line-height: 1.6; margin-top: 5mm; }
+.b-disc { background: #f7f4ef; border: 1px solid #d8d0c6; padding: 3mm 4mm; margin-top: 4mm; font-size: 8.5pt; color: #4b5563; line-height: 1.65; }
+</style>
+</head>
+<body>
+<div class="brief-wrap">
+<div class="b-title">
+  <div class="no">张德鸿投研团队 · 第210篇 · 简易版</div>
+  <h1>砂轮与算术</h1>
+  <div class="d">日本基础技术的定价权与边界 ｜ 数据口径：2026 年 8 月 31 日（实证）｜ 研究材料，非投资建议</div>
+</div>
+
+<div class="b-eight">
+
+<section>
+<h4>一句话结论</h4>
+<p>日本上游卡位真实（硅晶圆 44.1%、ABF 逾 95%、涂胶显影 100%），但市场为它支付的年化超额收益是 22.76% 而非 46%，且周频不显著、滚动窗口区间达 12% 至 56%。</p>
+</section>
+
+<section>
+<h4>事件</h4>
+<p>FY2026/03 信越化学营收 2.5739 万亿日元、营业利润 6,352 亿（同比 −14.4%），聚氯乙烯拖累、电子材料部门增长 6%（L1）。东京电子营业利润 6,249 亿（−10.4%），中国营收占比降至 34.1%（L1）。味之素 ABF 新价 2026 年三季生效、涨幅最高 30%，对中国大陆削减 30% 供货（L1）。Lasertec 受注 2,375 亿日元、同比 +125.7%（L1）。</p>
+</section>
+
+<section>
+<h4>关键假设</h4>
+<ul>
+<li>产业卡位将持续。验证：年度市场份额调查，跟踪硅晶圆 44.1%、光刻胶 60.5% 是否维持。</li>
+<li>超额收益主体在中小市值六只。验证：分组回归，跟踪大市值组（12.93%）显著性是否改善。</li>
+<li>人工智能因子仅同期有效。验证：滞后回归，跟踪各期 t 值是否回升。</li>
+</ul>
+</section>
+
+<section>
+<h4>核心实证图</h4>
+<figure>
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Global semiconductor critical node share held by Japanese firms">
+<rect width="760" height="330" fill="#ffffff"/>
+<text x="380" y="26" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f3460" font-family="Georgia,serif">图 1　关键环节的日本份额：单点垄断 vs 全口径稀释</text>
+<text x="380" y="46" text-anchor="middle" font-size="11" fill="#4b5563">按物理工序细分的关键材料与设备子赛道，非「半导体材料市场」全口径</text>
+<line x1="330" y1="60" x2="330" y2="292" stroke="#0f3460" stroke-width="1.4"/>
+<text x="330" y="308" text-anchor="middle" font-size="9" fill="#6b7280">0%</text>
+<text x="440" y="308" text-anchor="middle" font-size="9" fill="#6b7280">25%</text>
+<text x="550" y="308" text-anchor="middle" font-size="9" fill="#6b7280">50%</text>
+<text x="660" y="308" text-anchor="middle" font-size="9" fill="#6b7280">75%</text>
+<text x="728" y="308" text-anchor="middle" font-size="9" fill="#6b7280">100%</text>
+<g font-size="10" fill="#16213e">
+<text x="322" y="80" text-anchor="end">EUV 涂胶显影</text>
+<rect x="330" y="70" width="398" height="14" fill="#0f3460"/>
+<text x="734" y="82" font-size="9.5" font-weight="bold" fill="#0f3460">100%</text>
+
+<text x="322" y="106" text-anchor="end">EUV 掩模缺陷检测</text>
+<rect x="330" y="96" width="398" height="14" fill="#0f3460"/>
+<text x="734" y="108" font-size="9.5" font-weight="bold" fill="#0f3460">100%</text>
+
+<text x="322" y="132" text-anchor="end">ABF 积层膜</text>
+<rect x="330" y="122" width="378" height="14" fill="#F4B642"/>
+<text x="716" y="134" font-size="9.5" font-weight="bold" fill="#b45309">95%+</text>
+
+<text x="322" y="158" text-anchor="end">晶圆切割研磨设备</text>
+<rect x="330" y="148" width="338" height="14" fill="#F4B642"/>
+<text x="676" y="160" font-size="9.5" font-weight="bold" fill="#b45309">85%</text>
+
+<text x="322" y="184" text-anchor="end">EUV 掩模基板</text>
+<rect x="330" y="174" width="338" height="14" fill="#F4B642"/>
+<text x="676" y="186" font-size="9.5" font-weight="bold" fill="#b45309">85%</text>
+
+<text x="322" y="210" text-anchor="end">高端 EUV 光刻胶</text>
+<rect x="330" y="200" width="326" height="14" fill="#F4B642"/>
+<text x="664" y="212" font-size="9.5" font-weight="bold" fill="#b45309">82%</text>
+
+<text x="322" y="236" text-anchor="end">半导体级硅晶圆</text>
+<rect x="330" y="226" width="175" height="14" fill="#2f7d76"/>
+<text x="513" y="238" font-size="9.5" font-weight="bold" fill="#2f7d76">44.1%</text>
+
+<text x="322" y="262" text-anchor="end">半导体材料（全口径对照）</text>
+<rect x="330" y="252" width="163" height="14" fill="#94a3b8"/>
+<text x="501" y="264" font-size="9.5" font-weight="bold" fill="#6b7280">41%</text>
+</g>
+<text x="380" y="322" text-anchor="middle" font-size="9" fill="#6b7280">数据来源：日本经济新闻 2025 年份额调查、各公司 FY2026/03 财报</text>
+</svg>
+<figcaption>图1　关键环节的日本份额。深蓝为接近百分之百的独家垄断环节，金色为高集中度环节，青色为双寡头环节，灰色为全口径对照。最后一行是全篇最重要的对照：全口径下日本占 41%，但真正构成定价权的是上面那几个接近百分之百的单点。用 41% 讨论定价权，等于把有壁垒和无壁垒的部分混在一起算。数据来源：日本经济新闻 2025 年份额调查、各公司最新财报。</figcaption>
+</figure>
+</section>
+
+<section>
+<h4>我们与市场的分歧</h4>
+<p>市场把八只股票笼统打包为「人工智能供应链标的」，用一个因子解释全部。我们认为内部异质性极大：人工智能载荷从味之素的 0.010 到 Advantest 的 0.564，跨度超过 50 倍。差异的量级更直接：分组回归显示，大市值两只（信越与东京电子）年化超额收益仅 12.93% 且不显著（t=1.45），中小市值六只为 26.03% 且显著（t=3.10）——组合的超额收益几乎全部来自后者。笼统打包会同时犯两个错：把一个不依赖人工智能叙事的标的（味之素）混进来，又把收益来源归因给错误的因子。</p>
+</section>
+
+<section>
+<h4>催化因素</h4>
+<ul>
+<li>Lasertec 已受注 2,375 亿日元（+125.7%），向营收转化的时点在下个财年。</li>
+<li>ABF 载板缺口预计 2027 年扩大至 21%，2028 年上看 42%；交期已拉长至 12 至 14 个月。</li>
+<li>硅晶圆长协到期后的提价落地：普通 12 英寸涨 5% 至 8%，高端涨 18% 至 22%。</li>
+<li>北海道千岁市 2 纳米项目 2027 下半年量产进度，影响整个日本半导体板块的估值心态。</li>
+</ul>
+</section>
+
+<section>
+<h4>不做什么</h4>
+<p>禁区：一，不把产业地位直接等同于投资价值——高利润率解释「为什么这家公司好」，不解释「为什么这只股票会涨」。二，不引用无法由脚本复现的数字。三，不用 beta 反推仓位——beta 0.87 但历史最大回撤 44%，两者严重不匹配。四，不把尾部情景当作基准情形。</p>
+<p>保留的敞口：捕捉人工智能资本开支的敞口（高载荷标的）；捕捉产业瓶颈定价权的敞口（味之素、Lasertec 这类逻辑独立的标的）。两类敞口的风险来源不同，应分开配置。</p>
+</section>
+
+<section>
+<h4>风险与免责</h4>
+<p>风险：超额收益周频不显著（t=1.76，p=0.079）；滚动窗口出现负值窗口（−3.53%）；中小市值组存在容量约束；人工智能资本开支周期若在 2027 至 2028 年放缓，组合将承受直接的 beta 冲击。L2 数据已就近标注。</p>
+<p>研究材料，非投资建议。</p>
+</section>
+
+</div>
+
+<div class="b-hook">
+本篇详细版核验 16 项关键数字：11 项精确通过、1 项订正口径、4 项为本轮新增发现（另有 5 项原稿实证结论经复算判定不成立，详见订正台账）。完整核验台账与 5 条跟踪观察点见详细版。两版结论一致，以详细版为准。
+</div>
+
+<div class="b-disc">
+<b>口径提示</b>：组合为八只等权（信越化学、东京电子、DISCO、Lasertec、Advantest、HOYA、东京应化、味之素），样本 2020-01-02 至 2026-08-31，共 1,370 个交易日。超额收益由五因子加人工智能供应链因子回归得到，标准误采用 HAC 估计。人工智能因子为费城半导体指数相对 MSCI 全球指数的超额收益、滞后一个交易日。产业份额为日本经济新闻 2025 年调查口径，与全口径「半导体材料市场」不可混用。<br>
+报告编号 ZDHTY-2026-210-C ｜ 张德鸿投研团队
+</div>
+</div>
+</body>
+</html>

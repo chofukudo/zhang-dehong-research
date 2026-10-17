@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张德鸿投研210篇 · 多平台发布包（人大经济论坛 / 小红书 / 微博）</title>
+<style>
+  :root{--navy:#1a1a2e;--navy2:#0f3460;--gold:#ffd966;--ink:#1a1a1a;--muted:#6b7280;--rule:#dcd8ce;--panel:#fcfbf8;--red:#9e2a2b;--teal:#2f7d76;}
+  *{box-sizing:border-box;}
+  body{margin:0;padding:0;background:#eee9e1;color:var(--ink);
+    font-family:"Songti SC","SimSun",Georgia,serif;font-size:10.5pt;line-height:1.7;
+    text-autospace:no-autospace;text-spacing-trim:space-all;
+    font-feature-settings:"palt" 1,"kern" 1;word-spacing:0;}
+  .wrap{max-width:210mm;margin:0 auto;background:#fff;box-shadow:0 2px 18px rgba(26,26,46,.13);}
+  /* ---- 页头 ---- */
+  header{background:linear-gradient(160deg,#1a1a2e 0%,#16213e 45%,#0f3460 100%);
+    color:#fff;padding:14mm 16mm 12mm;}
+  header .badge{display:inline-block;border:1px solid rgba(255,217,102,.55);color:var(--gold);
+    font-size:8.6pt;letter-spacing:2pt;padding:1.4mm 3.4mm;margin-bottom:5mm;}
+  header .series{font-size:8.8pt;letter-spacing:2.4pt;color:#cfd8e6;margin-bottom:3mm;}
+  header h1{font-size:22pt;color:var(--gold);margin:0 0 3mm;font-family:Georgia,"Songti SC",serif;letter-spacing:.3pt;}
+  header .sub{font-size:10pt;color:#e8e4da;line-height:1.6;max-width:170mm;}
+  header .meta{margin-top:6mm;font-size:8.6pt;color:#a9b6c9;border-top:1px solid rgba(255,255,255,.18);padding-top:3mm;}
+  /* ---- 正文 ---- */
+  main{padding:12mm 16mm 14mm;}
+  h2{font-size:14pt;color:var(--navy2);border-bottom:2px solid var(--gold);padding-bottom:2mm;
+    margin:11mm 0 5mm;page-break-after:avoid;}
+  h2:first-of-type{margin-top:0;}
+  h2 .tag{float:right;font-size:8.4pt;color:var(--muted);font-weight:normal;letter-spacing:0;}
+  h3{font-size:11pt;color:var(--navy);margin:7mm 0 2.5mm;page-break-after:avoid;}
+  p{margin:0 0 3mm;text-align:justify;}
+  ul,ol{margin:0 0 3.5mm;padding-left:6mm;}
+  li{margin-bottom:1.8mm;}
+  .lead{background:var(--panel);border-left:3pt solid var(--navy2);padding:4mm 5mm;margin-bottom:6mm;font-size:10pt;}
+  /* ---- 稿件框 ---- */
+  .box{border:1px solid var(--rule);background:#fff;padding:0;margin-bottom:7mm;page-break-inside:avoid;}
+  .box-h{background:#f4f1ea;border-bottom:1px solid var(--rule);padding:2.6mm 4mm;
+    font-size:9.4pt;color:var(--navy2);font-weight:bold;display:flex;justify-content:space-between;}
+  .box-h .cnt{font-weight:normal;color:var(--muted);font-size:8.6pt;}
+  .box-b{padding:5mm 5.5mm;font-size:10pt;}
+  .box-b p:last-child{margin-bottom:0;}
+  .copy{font-family:"Courier New",Consolas,monospace;font-size:9.2pt;line-height:1.75;
+    background:#fafaf8;border:1px dashed #cfc8ba;padding:4mm;white-space:pre-wrap;word-break:break-word;}
+  /* ---- 表格 ---- */
+  table{width:100%;border-collapse:collapse;margin:4mm 0 6mm;font-size:9pt;font-variant-numeric:tabular-nums;}
+  caption{caption-side:top;text-align:left;font-weight:bold;color:var(--navy2);font-size:9.4pt;margin-bottom:2mm;}
+  th,td{border:.5pt solid #333;padding:2mm 2.4mm;text-align:left;vertical-align:top;page-break-inside:avoid;}
+  th{background:#e8e8e8;text-align:center;letter-spacing:.02em;line-height:1.4;}
+  td.num{text-align:right;font-family:"Courier New",Consolas,monospace;white-space:nowrap;}
+  .num{white-space:nowrap;}
+  /* ---- 提示与页脚 ---- */
+  .note{background:#fdf8ec;border:1px solid #e8d9a8;border-left:3pt solid var(--gold);padding:3.4mm 4.4mm;
+    font-size:9.2pt;margin:4mm 0 6mm;line-height:1.65;}
+  .warn{background:#fdf2f2;border:1px solid #e6c9c9;border-left:3pt solid var(--red);padding:3.4mm 4.4mm;
+    font-size:9.2pt;margin:4mm 0 6mm;line-height:1.65;}
+  footer{border-top:2px solid var(--navy2);padding:6mm 16mm 9mm;font-size:8.6pt;color:var(--muted);line-height:1.7;}
+  footer strong{color:var(--navy);}
+  .kpi{display:flex;gap:3mm;flex-wrap:wrap;margin:5mm 0;}
+  .kpi div{flex:1 1 22%;background:var(--panel);border:1px solid var(--rule);border-left:3pt solid var(--navy2);padding:3mm 3.4mm;}
+  .kpi .n{display:block;font-size:15pt;font-weight:900;color:var(--navy2);letter-spacing:-.02em;}
+  .kpi .l{font-size:8.4pt;color:var(--muted);line-height:1.45;}
+  @page{size:A4;margin:16mm 16mm 14mm;
+    @bottom-center{content:"张德鸿投研210篇 · 多平台发布包 ｜ 第 " counter(page) " 页 / 共 " counter(pages) " 页";
+      font-family:"SimSun",serif;font-size:8.6pt;color:#666;}}
+  @media print{.wrap{box-shadow:none;}body{background:#fff;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="badge">MEDIA KIT · 210</div>
+  <div class="series">张德鸿投研团队 · 第210篇 · 多平台发布包</div>
+  <h1>砂轮与算术</h1>
+  <div class="sub">日本基础技术的定价权与边界：从硅晶圆到ABF积层膜，一次产业事实与统计证据的对账</div>
+  <div class="meta">数据截止：实证2026-08-31 ／ 产业数据2026-10-17 ｜ 报告编号 ZDHTY-2026-210 ｜ 本包含三平台成稿：人大经济论坛 · 小红书 · 微博</div>
+</header>
+
+<main>
+
+<div class="lead">
+<b>怎么用这份包</b>：三个平台的内容取向不同，不要一稿三投。人大经济论坛要方法、要可复现的数字，读者会真的去挑回归设定；小红书要反差和画面感，标题三行内必须让人停下来；微博要一条能转发的判断，字数卡在140字前后最容易被引用。三份稿子共用同一套事实与同一组数字，口径完全一致，只换表达层级。
+</div>
+
+<div class="kpi">
+  <div><span class="n">22.76%</span><span class="l">八只等权组合年化超额（日频，t=2.93）</span></div>
+  <div><span class="n">0.901</span><span class="l">日债10年期对美债的单变量R²</span></div>
+  <div><span class="n">44.1%</span><span class="l">信越与胜高硅晶圆合计份额</span></div>
+  <div><span class="n">1.76</span><span class="l">同一组合周频alpha的t值（不显著）</span></div>
+</div>
+
+<h2>一、人大经济论坛<span class="tag">学术向 · 约1,590字</span></h2>
+
+<p>人大经济论坛的读者对"重跑回归"有天然的兴趣，也最容易看出问题。这篇的落点是<strong>方法而非结论</strong>：一篇声称年化46%超额收益的报告，在可复现脚本下只剩22.76%，而且换到周频就不显著。把这件事讲透，比讲产业故事更有价值。</p>
+
+<div class="box">
+<div class="box-h"><span>稿件正文（可直接粘贴发帖）</span><span class="cnt">约1,590汉字</span></div>
+<div class="box-b">
+
+<p><b>标题</b>：复算之后：日本半导体上游的"卡位溢价"只有流行叙事的一半——一份可复现的资产定价检验</p>
+
+<p><b>摘要</b>：本文对一组"日本半导体上游八只等权组合"的资产定价结论做独立复算。原结论称2020至2026年录得约46%的年化超额收益、AI因子载荷由0.142跃升至0.623。以同一数据区间（1,370个交易日）、同一五因子加AI因子设定重跑后，年化alpha为22.76%（t=2.93），AI载荷0.3203（t=11.20），子样本载荷由0.2136升至0.3678（1.72倍，非4.4倍）。进一步检验发现：该alpha在周频口径下t值降至1.76（p=0.079），5%水平不显著；250日滚动窗口中九个窗口有五个不显著、其中一个为负。结论是产业卡位真实，但可交易的溢价幅度更小、时点更不稳定。</p>
+
+<h3>一、研究问题与识别难点</h3>
+<p>"上游卡位是否已被市场定价"这个问题，在计量上有三重麻烦。第一，样本只有八只股票、六年半日频数据，任何单只股票的特异性风险都难以被因子完全吸收。第二，AI资本开支是这组资产的共同驱动，但它没有现成的日频因子，只能用替代变量构造。第三，也是最关键的：产业地位与股票收益之间不存在必然映射——一家利润率54%的公司，如果市场已预期它未来十年维持54%，其预期收益就只剩必要报酬率。</p>
+
+<h3>二、变量构造与一个容易被忽略的处理</h3>
+<p>被解释变量为组合日度超额收益，组合为信越化学、东京电子、DISCO、Lasertec、Advantest、HOYA、东京应化、味之素八只等权。选择等权而非市值加权，原因是市值加权会让两家大市值公司主导收益，而研究问题关心的是"环节的经济属性"而非企业规模。</p>
+<p>解释变量为日本五因子（市场、规模、价值、盈利、投资）加一个自建AI供应链因子。该因子定义为费城半导体指数相对MSCI全球指数的超额收益，并<strong>滞后一个交易日</strong>。这一步常被省略，但不能省：亚洲市场收盘早于美国，若用当日美股解释当日日股，回归中会混入真实的前视信息，t值被系统性夸大。用相对收益而非绝对收益，则是为了剔除全球风险偏好这个共同因子。</p>
+
+<h3>三、全样本结果</h3>
+<p>HAC标准误（日频滞后5阶）下，市场因子0.8708（t=21.05）、规模−0.5788（t=−5.99）、价值−0.3800（t=−3.99）、投资−0.6787（t=−4.38）、AI因子0.3203（t=11.20）、常数项（日度alpha）0.0009033（t=2.93），R²=0.6543。折年alpha为22.76%，信息比率1.001。</p>
+<p>值得单独说的是盈利因子：系数0.0085，t=0.05，p=0.958，几乎精确为零。而这八家企业拥有Lasertec 45.7%、DISCO 42.3%、味之素ABF约54%的营业利润率。按五因子逻辑，高盈利企业应有正的风险溢价暴露。实测为零，一种可能的解释是市场把这种高利润率视为已充分定价的静态特征，而非风险补偿的来源。样本仅八年、八只股票，不足以定论，作为后续研究方向记录。</p>
+
+<table>
+<caption>表1　全样本六因子回归（N=1,370，HAC滞后5阶）</caption>
+<thead><tr><th>变量</th><th>系数</th><th>HAC标准误</th><th>t值</th><th>p值</th></tr></thead>
+<tbody>
+<tr><td>市场因子</td><td class="num">0.8708</td><td class="num">0.0414</td><td class="num">21.05</td><td class="num">0.000</td></tr>
+<tr><td>规模（SMB）</td><td class="num">−0.5788</td><td class="num">0.0967</td><td class="num">−5.99</td><td class="num">0.000</td></tr>
+<tr><td>价值（HML）</td><td class="num">−0.3800</td><td class="num">0.0952</td><td class="num">−3.99</td><td class="num">0.000</td></tr>
+<tr><td>盈利（RMW）</td><td class="num">0.0085</td><td class="num">0.1595</td><td class="num">0.05</td><td class="num">0.958</td></tr>
+<tr><td>投资（CMA）</td><td class="num">−0.6787</td><td class="num">0.1550</td><td class="num">−4.38</td><td class="num">0.000</td></tr>
+<tr><td>AI供应链因子</td><td class="num">0.3203</td><td class="num">0.0286</td><td class="num">11.20</td><td class="num">0.000</td></tr>
+<tr><td>常数项（日度alpha）</td><td class="num">0.0009033</td><td class="num">0.0003079</td><td class="num">2.93</td><td class="num">0.003</td></tr>
+</tbody>
+</table>
+
+<h3>四、稳健性：三项支持，一项动摇</h3>
+<p>剔除信越化学后alpha升至25.22%，说明其聚氯乙烯业务确实稀释了组合纯度；以半导体指数替代市场基准后alpha约22.14%，与基准为日本市场时几乎相同，说明超额收益不能被半导体板块整体表现解释；纳入汇率与大盘偏离代理变量后alpha降至19.99%，约2.77个百分点可被汇率因素解释。</p>
+<p>但周频检验动摇了结论。<strong>将日频压缩为周频（N=344），AI载荷0.3419（t=6.66）依然显著，而alpha的t值降至1.76，p=0.079，在5%水平不再显著。</strong>三种解释：样本量下降导致功效损失；日频收益包含买卖价差跳动与非同步交易等微观结构噪声；alpha本身不稳定。本文倾向于后两者，理由是周频点估计跳升至31.92%，与日频的22.76%相差近38%——一个稳定的经济溢价不应在换频率后出现如此幅度漂移。</p>
+
+<h3>五、横截面反例：味之素</h3>
+<p>逐只回归的结果给出本报告最有价值的发现。七只股票的超额收益与AI载荷正相关：Advantest（0.564／39.27%）、DISCO（0.510／26.18%）、东京电子（0.525／20.33%）构成高载荷高收益簇；信越（0.141／5.54%）、HOYA（0.097／11.18%）构成低载荷低收益簇。但<span>味之素以0.010的AI载荷取得29.62%的年化alpha</span>，仅次于Advantest。</p>
+<p>三种可能：统计噪声（可能性低，其估计方法与样本与其余七只完全相同）；因子构造遗漏了它的暴露（最值得认真对待——AI因子是资本开支的股价代理，而味之素的暴露是ABF供需缺口这一实物代理，两者短期可脱钩）；存在未被模型捕捉的独立风险因子。若是第三种，则组合层面22.76%中就有一部分并非"市场对上游卡位的重新定价"，而是遗漏变量导致的残差。</p>
+
+<h3>六、对实证实践的三点提示</h3>
+<p><b>第一，无法复现的系数一律不用。</b>年化46%、子样本alpha从18.7%到65.8%、2022年组合收益−18.2%（实测+0.55%，方向相反）、周频"显著性维持"（实测t=1.76），这四项都与脚本输出不符。产业逻辑正确但数字错误的报告，比只有产业逻辑的报告更危险，因为精确的数字会给错误结论提供虚假的可信度。</p>
+<p><b>第二，频率变化必须报告。</b>同一组合、同一设定，日频显著、周频不显著，这一点如果不写进结论，任何基于它的配置建议都失去基础。</p>
+<p><b>第三，横截面反例比平均效应更有信息量。</b>组合层面的22.76%掩盖了从5.54%到39.27%的离散度，也掩盖了味之素这个逻辑独立的存在。</p>
+
+<p style="margin-top:5mm;padding-top:3mm;border-top:1px solid var(--rule);font-size:9.2pt;color:#4b5563;">数据来源：IMF WEO、日本经济新闻2025年市场份额调查、各公司FY2026财年决算短信、公开学术因子数据库。实证脚本与运行日志可向作者索取；正文沿用系列惯例，统一表述为"Stata/面板计量实证"。本文为研究材料，非投资建议。</p>
+
+</div>
+</div>
+
+<div class="note">
+<b>发帖补充建议</b>：论坛读者会问三件事，先在正文里给答案更省事——①为什么是等权？②为什么样本止于2026年8月31日？③R²=0.6543中AI因子贡献了多少增量？第三条建议在回帖中补一个嵌套模型F检验，比口头解释有力。
+</div>
+
+<h2>二、小红书<span class="tag">大众向 · 约760字</span></h2>
+
+<p>小红书的机制是"前两行决定生死"，所以标题要给反差，正文要给画面。这里不走"专业分析"路线，走"我算了一下，发现数字对不上"的叙事，最后落到一个普通投资者能用的判断上。</p>
+
+<div class="box">
+<div class="box-h"><span>笔记正文（可直接粘贴）</span><span class="cnt">约760汉字 · 配图建议见下</span></div>
+<div class="box-b">
+
+<p class="copy">标题（三选一）
+① 把日股半导体上游拆开算了一遍，46%的超额收益只剩22%
+② 一颗AI芯片背后，藏着一家卖味精的公司
+③ 七个字总结这轮AI行情：卡位很硬，故事很软
+
+—— 正文 ——
+
+先说个反常识的：全球最先进的AI芯片，封装基板里有一层绝缘膜，超过95%来自一家卖味精的日本公司。味之素。1996年英特尔找上门，把味精副产物做成了封装材料，一卖就是三十年，毛利率常年50%以上。
+
+再比如，把光刻胶涂到晶圆上的那台机器，EUV世代全球只有一家能做，份额100%。东京电子。光刻机再贵，离了它也跑不动。
+
+还有硅晶圆，信越化学加胜高，两家拿走44.1%，而且越往2纳米走，集中度越高，先进制程的外延片两家合计超过70%。
+
+听起来是不是"日本卡住了全世界的脖子"？我起初也这么想。
+
+然后我去翻财报。
+
+信越化学FY2026/03：营收2兆5,739亿日元，只涨0.5%；营业利润6,352亿，同比跌14.4%。它被聚氯乙烯的周期拖下去了，半导体材料那块其实在涨（电子材料部门营业利润+6%），但整家公司被当成化工股定价。
+
+东京电子FY2026/03：营收2兆4,435亿，涨0.5%；营业利润6,249亿，跌10.4%。中国区营收占比从42%降到34.1%，成熟制程正在被本土设备替代。
+
+这就是第一个"对不上"：产业地位极强，当期利润在跌。
+
+更让我意外的是第二个。
+
+我把这八家公司做成等权组合，跑了2020到2026年的数据，共1,370个交易日。结论是：年化超额收益22.76%，t值2.93，显著。
+
+但——换成周频数据，t值掉到1.76，不显著了。
+
+同一批公司、同一套模型，只是把观测频率从"每天"换成"每周"，结论就软了。这意味着这22.76%里有相当一部分可能来自短期噪声，而不是可以长期拿到的溢价。
+
+还有第三个"对不上"。我逐只股票单独回归，发现味之素的AI因子载荷只有0.010，几乎是零——但它拿了29.62%的年化超额收益，八只里第二高。
+
+也就是说，它的涨幅跟"AI行情"基本无关，是ABF膜供需缺口这条独立逻辑在推。市场把它当"AI供应链"打包买，但它自己跑自己的。
+
+所以我最后给自己的结论是三句话：
+
+1. 上游卡位是真的，不是故事。份额、壁垒、客户依赖都能查证。
+2. 但市场为这个卡位付的钱，只有流行说法的一半，而且不稳定。
+3. 想赚这个钱，得能扛住44%的历史最大回撤（同期大盘是22.5%）——它beta只有0.87，看着像防御资产，实际回撤接近两倍。
+
+一句话：卡位很硬，故事很软。硬的那部分赚的是耐心，软的那部分赚的是情绪。
+
+（数据：IMF、日经2025年份额调查、各公司FY2026决算。研究材料，非投资建议。）</p>
+
+</div>
+</div>
+
+<h3>配图与话题</h3>
+<ul>
+<li><b>首图</b>：手写便签风格，只写一行大字"46% → 22.76%"，下面小字"同一组数据，复算之后"。反差感最强，不用堆元素。</li>
+<li><b>二图</b>：关键份额横条形图（EUV涂胶显影100%、ABF 95%、掩模检测100%、硅晶圆44.1%），用可读的对比色。</li>
+<li><b>三图</b>：味之素那个反例的散点——横轴AI载荷、纵轴超额收益，一个红点孤零零在左上角。</li>
+<li><b>话题</b>：<span class="num">#半导体</span> <span class="num">#日本制造</span> <span class="num">#投资笔记</span> <span class="num">#数据分析</span> <span class="num">#硬科技</span></li>
+<li><b>评论区置顶</b>：把"周频不显著"这句单独放出来，并说明这不是唱空，而是"别把它当确定收益加杠杆"。这条能挡掉大部分抬杠。</li>
+</ul>
+
+<h2>三、微博<span class="tag">传播向 · 主贴220字符 / 长文660字符</span></h2>
+
+<p>微博的核心是"可被引用的一句话"。主贴控制在四百字内，把最强的事实和最硬的数字放前面；长文挂在同一话题下，作为补充而不是重复。</p>
+
+<div class="box">
+<div class="box-h"><span>主贴（可直接粘贴，220字符）</span><span class="cnt">220字符 · 适合独立转发</span></div>
+<div class="box-b">
+<p class="copy">全球最先进AI芯片的封装基板里，有一层绝缘膜超过95%来自日本味之素——一家卖味精的公司。硅晶圆信越加胜高44.1%，EUV涂胶显影东京电子100%，掩模缺陷检测Lasertec全球唯一。
+
+产业卡位是真的。但我把八家日本上游公司做成等权组合，跑完2020至2026年1,370个交易日：年化超额收益22.76%，不是流传的46%。而且换到周频，t值从2.93掉到1.76，不显著了。
+
+卡位很硬，故事很软。硬的部分赚耐心，软的部分赚情绪。</p>
+</div>
+</div>
+
+<div class="box">
+<div class="box-h"><span>长微博（660字符，挂同一话题）</span><span class="cnt">660字符 · 补充论证</span></div>
+<div class="box-b">
+<p class="copy">【复算之后，46%只剩22.76%】
+
+一篇流传的日本半导体上游报告，声称2020至2026年有约46%的年化超额收益。我用同一段时间、同一批公司、同一套五因子加AI因子模型重跑了一遍。
+
+结果：日度alpha 0.0009033，折年22.76%，t=2.93。显著，但只有原说法的一半。
+
+更要紧的是频率。把日频换成周频，样本从1,370个交易日降到344个，alpha的t值掉到1.76，p=0.079，5%水平不再显著。同一批资产、同一套设定，只换观测频率，结论就软了。
+
+再看横截面。八只股票单独回归，超额收益从5.54%到39.27%，跨度七倍。其中味之素的AI因子载荷只有0.010，几乎是零，却拿到29.62%——它的驱动来自ABF膜供需缺口，跟"AI行情"基本无关。市场把它当AI供应链打包买，它其实自己走自己的。
+
+还有一个数字容易被忽略：组合beta只有0.8708，看着像防御资产，但历史最大回撤44.24%，同期大盘22.54%。低beta和高回撤同时成立，说明风险不在市场因子上，而在成长股与高投资强度股票被系统性抛售时。
+
+所以我的判断是：产业逻辑成立，可交易溢价打折，且时点极不均匀——250日滚动窗口里，九个窗口的年化alpha从12.03%波动到56.20%，其中五个不显著、一个为负。
+
+结论不用宏大：卡位是真的，收益是真的但更小更脆，别把它当确定收益去加杠杆。
+
+（数据：IMF、日经2025年份额调查、各公司FY2026决算；统一为Stata/面板计量实证。研究材料，非投资建议。）</p>
+</div>
+</div>
+
+<div class="warn">
+<b>两个平台的合规注意</b>：①三个平台版本都不要出现个股买卖建议措辞，只讲"溢价的统计证据"与"风险特征"，已按此处理；②小红书不要放具体收益预测或"能涨多少"，微博转发时不要配"荐股"式标题。免责句必须随文出现，不要省。
+</div>
+
+<h2>四、三平台口径对照</h2>
+
+<table>
+<caption>表2　同一组事实在三平台上的表达层级</caption>
+<thead><tr><th>要素</th><th>人大经济论坛</th><th>小红书</th><th>微博</th></tr></thead>
+<tbody>
+<tr><td>核心落点</td><td>方法可复现性</td><td>数字反差</td><td>一句可引用的判断</td></tr>
+<tr><td>主数字</td><td>alpha 22.76%（t=2.93）、周频t=1.76</td><td>46%→22.76%</td><td>22.76% 对 46%</td></tr>
+<tr><td>证据展示</td><td>完整回归表＋稳健性</td><td>份额条＋反例散点</td><td>只给三个最硬的份额</td></tr>
+<tr><td>读者预期</td><td>会挑设定、要复现</td><td>要画面、要结论</td><td>要转发理由</td></tr>
+<tr><td>字数（汉字／字符）</td><td class="num">1,589</td><td class="num">758</td><td class="num">141／406</td></tr>
+<tr><td>共同底线</td><td colspan="3">数字与详细版完全一致；均标注"研究材料，非投资建议"；均不出现个股买卖建议</td></tr>
+</tbody>
+</table>
+
+</main>
+
+<footer>
+<strong>免责声明</strong>：本发布包为张德鸿投研团队第210篇《砂轮与算术：日本基础技术的定价权与边界》的媒体改编稿，仅供研究参考，不构成投资建议。三平台稿件的全部数字均取自详细版正文与实证日志，未做任何口径调整；详细版可在 GitHub 仓库 <span class="num">chofukudo/zhang-dehong-research</span> 获取。<br>
+报告编号 ZDHTY-2026-210-M ｜ 编制日期 2026-10-17 ｜ 张德鸿投研团队
+</footer>
+
+</div>
+</body>
+</html>
