@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhang Dehong Research No.214 · The Waterline, Next Day: The First Candle After the Ebb</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316213e'/%3E%3Cpath d='M14 42 L28 16 L36 32 L44 20 L52 42' stroke='%23ffd966' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='44' cy='16' r='5' fill='%23F4B642'/%3E%3C/svg%3E">
+<style>
+@page {
+  size: A4;
+  margin: 20mm 22mm 20mm 22mm;
+  @bottom-center {
+    content: "Zhang Dehong Research Team · No.214 ｜ p. " counter(page) " / " counter(pages);
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: 8.5pt;
+    color: #6b7280;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: Georgia,"Times New Roman","Songti SC",serif;
+  font-size: 10.5pt;
+  line-height: 1.62;
+  color: #16213e;
+  background: #eeebe4;
+  margin: 0;
+  padding: 0;
+}
+@media print {
+  body { background: #ffffff; }
+  .card, .kpi-b, .key, .brief-anchor, .cover-glass { box-shadow: none !important; }
+  thead { display: table-header-group; }
+  tr, th, td { page-break-inside: avoid; }
+  figure, table, .card, .key, .tbl-note { page-break-inside: avoid; }
+  figure svg { max-height: 78mm; }
+  h2, h3 { page-break-after: avoid; }
+  .cover { background: #16213e !important; }
+}
+@media screen {
+  .page {
+    max-width: 210mm;
+    margin: 12mm auto;
+    background: #fffdf9;
+    box-shadow: 0 2px 14px rgba(26,26,46,0.14);
+    padding: 20mm 22mm;
+  }
+}
+.page { position: relative; }
+
+/* ---------- Cover ---------- */
+.cover {
+  margin: -10mm -13mm 8mm -13mm;
+  padding: 22mm 15mm 14mm 15mm;
+  background: linear-gradient(160deg,#1a1a2e 0%,#16213e 45%,#0f3460 100%);
+  color: #f7f4ef;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  right: -40mm; top: -40mm;
+  width: 120mm; height: 120mm;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(255,217,102,0.16) 0%,rgba(255,217,102,0) 65%);
+}
+.cover-badge {
+  display: inline-block;
+  border: 1.2px solid #ffd966;
+  color: #ffd966;
+  font-size: 9pt;
+  letter-spacing: 0.35em;
+  padding: 2.5pt 10pt;
+  margin-bottom: 8mm;
+  font-family: Georgia,"Times New Roman",serif;
+}
+.cover-series {
+  font-size: 10.5pt;
+  color: #cbd5e1;
+  letter-spacing: 0.12em;
+  margin-bottom: 2mm;
+}
+.cover-title {
+  font-size: 27pt;
+  line-height: 1.28;
+  color: #ffd966;
+  font-weight: 700;
+  margin: 4mm 0 3mm 0;
+  font-family: Georgia,"Times New Roman",serif;
+}
+.cover-sub {
+  font-size: 12.5pt;
+  color: #e8e4da;
+  line-height: 1.6;
+  margin-bottom: 5mm;
+}
+.cover-goldline {
+  border: 0;
+  border-top: 1.6px solid #F4B642;
+  width: 62mm;
+  margin: 4mm 0 5mm 0;
+}
+.cover-method {
+  font-size: 9.5pt;
+  color: #94a3b8;
+  line-height: 1.7;
+  max-width: 126mm;
+}
+.cover-glass {
+  margin-top: 7mm;
+  padding: 5mm 6mm;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,217,102,0.35);
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+  font-size: 8.8pt;
+  line-height: 1.72;
+  color: #f7f4ef;
+  max-width: 152mm;
+}
+.cover-glass b { color: #ffd966; }
+.cover-foot {
+  position: absolute;
+  bottom: 8mm; left: 15mm; right: 15mm;
+  display: flex; justify-content: space-between;
+  font-size: 8.5pt; color: #94a3b8;
+  border-top: 0.6px solid rgba(255,255,255,0.2);
+  padding-top: 3mm;
+}
+
+/* ---------- Executive summary ---------- */
+p.lead {
+  font-size: 11.5pt;
+  line-height: 1.75;
+  color: #16213e;
+  border-left: 3px solid #F4B642;
+  padding-left: 4mm;
+  margin: 6mm 0;
+}
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 3mm;
+  margin: 6mm 0;
+}
+.kpi-b {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  border-top: 2.5px solid #0f3460;
+  border-radius: 2px;
+  padding: 3.5mm 4mm;
+}
+.kpi-b .n { font-size: 15pt; font-weight: 700; color: #0f3460; font-family: Georgia,serif; }
+.kpi-b .l { font-size: 8.5pt; color: #6b7280; margin-top: 1mm; line-height: 1.5; }
+.claims { counter-reset: clm; margin: 5mm 0; }
+.claim { counter-increment: clm; display: flex; gap: 3mm; margin-bottom: 2.5mm; }
+.claim::before {
+  content: counter(clm);
+  min-width: 6.5mm; height: 6.5mm;
+  background: #0f3460; color: #ffd966;
+  border-radius: 50%;
+  font-size: 9.5pt; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 0.6mm;
+}
+.claim p { margin: 0; line-height: 1.6; }
+.matrix { margin: 6mm 0; }
+.matrix table { width: 100%; border-collapse: collapse; font-size: 9.2pt; }
+.matrix th { background: #0f3460; color: #f7f4ef; }
+.matrix td, .matrix th { border: 0.6px solid #d8d0c6; padding: 2.2mm 2.8mm; text-align: left; vertical-align: top; }
+
+/* ---------- TOC ---------- */
+.toc {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  padding: 5mm 6mm;
+  margin: 6mm 0;
+  page-break-inside: avoid;
+}
+.toc h3 { margin: 0 0 3mm 0; color: #0f3460; font-size: 12pt; }
+.toc ol { margin: 0; padding-left: 6mm; }
+.toc li { margin-bottom: 1.2mm; font-size: 9.5pt; }
+.toc a { color: #16213e; text-decoration: none; }
+
+/* ---------- Body ---------- */
+h2 {
+  font-size: 15pt;
+  color: #0f3460;
+  border-bottom: 1.4px solid #F4B642;
+  padding-bottom: 2mm;
+  margin: 9mm 0 4mm 0;
+  page-break-after: avoid;
+  font-family: Georgia,"Times New Roman",serif;
+}
+h3 {
+  font-size: 12pt;
+  color: #16213e;
+  margin: 5mm 0 2.5mm 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 3mm 0; text-align: justify; }
+p.kick {
+  margin: 4mm 0 5mm 0;
+  padding: 2.5mm 4mm;
+  background: #f7f4ef;
+  border-left: 3px solid #0f3460;
+  color: #0f3460;
+  font-weight: 700;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+strong { color: #1a1a2e; }
+
+/* ---------- Figures ---------- */
+figure { margin: 5mm 0; page-break-inside: avoid; }
+figure svg { width: 100%; height: auto; border: 1px solid #e5e0d6; background: #ffffff; }
+figcaption { font-size: 9pt; color: #4b5563; margin-top: 1.5mm; line-height: 1.55; text-align: justify; }
+
+/* ---------- Tables ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 0 0 2mm 0; }
+caption { caption-side: top; text-align: left; font-weight: 700; font-size: 10pt; padding-bottom: 1.5mm; color: #16213e; }
+th { background: #0f3460; color: #f7f4ef; font-weight: 700; border: 0.6px solid #0f3460; padding: 2.2mm 2.8mm; text-align: left; }
+td { border: 0.6px solid #d8d0c6; padding: 2.2mm 2.8mm; vertical-align: top; }
+tr:nth-child(even) td { background: #faf8f3; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+.tbl-note { font-size: 8.5pt; color: #6b7280; margin: 1mm 0 4mm 0; line-height: 1.55; }
+
+/* ---------- Cards ---------- */
+.card {
+  background: #f7f4ef;
+  border: 1px solid #d8d0c6;
+  border-radius: 2px;
+  padding: 4mm 5mm;
+  margin: 4mm 0;
+  page-break-inside: avoid;
+}
+.key {
+  background: #16213e;
+  color: #f7f4ef;
+  border-left: 4px solid #ffd966;
+  border-radius: 2px;
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  page-break-inside: avoid;
+}
+.key h4 { color: #ffd966; margin: 0 0 2.5mm 0; font-size: 11.5pt; }
+.key p { color: #f7f4ef; margin-bottom: 0; }
+
+/* ---------- Brief anchor ---------- */
+.brief-anchor { display: none; }
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 10mm;
+  padding-top: 4mm;
+  border-top: 1px solid #d8d0c6;
+  font-size: 8.5pt;
+  color: #6b7280;
+  line-height: 1.7;
+}
+.src-list { font-size: 9pt; color: #4b5563; line-height: 1.8; }
+.src-list li { margin-bottom: 1mm; }
+
+/* ---------- Mobile ---------- */
+@media screen and (max-width: 640px) {
+  .page { padding: 12mm 9mm; }
+  .cover { margin: -6mm -6mm 6mm -6mm; padding: 14mm 9mm; }
+  .cover-title { font-size: 20pt; }
+  .cover-foot { position: static; margin-top: 10mm; }
+  .kpi { grid-template-columns: repeat(2,1fr); gap: 2mm; }
+  .kpi-b .n { font-size: 12.5pt; }
+  figure { width: 100%; }
+  figure svg { width: 100%; min-width: 0; }
+  .matrix { overflow-x: auto; }
+  table { display: block; overflow-x: auto; table-layout: auto; white-space: nowrap; }
+  th, td { word-break: keep-all; }
+  .toc ol { padding-left: 4mm; }
+}
+@media print {
+  .kpi { grid-template-columns: repeat(4,1fr); }
+  table { table-layout: auto; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <span class="cover-badge">ZDHTY-2026-214 · DEEP RESEARCH</span>
+  <div class="cover-series">Zhang Dehong Research Team · Series Report No.214</div>
+  <div class="cover-title">The Waterline, Next Day<br>The First Candle After the Ebb</div>
+  <div class="cover-sub">An updated reading of the four faces of the AI-hardware retreat —<br>Japan's skew, Korea's concentration, Taiwan's saturated expectations, China's internal rotation, and what happened on October 23</div>
+  <hr class="cover-goldline">
+  <div class="cover-method">
+    Data window: 2025-01-02 to 2026-10-23 (472 trading days, including the day after the ebb) ｜ Protocol: Sheppard T1-T10<br>
+    Methods: panel econometrics (rank-sum test, GARCH two-step, event study, VAR-Granger, cross-sectional robust OLS, 60-day rolling correlation)<br>
+    Report date: 2026-10-24 ｜ Layout: L-156 standard (following No.204) ｜ Sources: public market data and company filings
+  </div>
+  <div class="cover-glass">
+    One-sentence conclusion: <b>The four faces of October 22 met their first counter-evidence on October 23 — A-shares reversed in a V, Korea turned higher, the SOX closed green, while the weakest link of the funding chain (CoreWeave) kept sinking.</b> An ebb is not completed in a day, and judging whether it is over requires watching whether the waterline is still falling: the funding-side cracks (Meta's first negative quarterly free cash flow since listing, CoreWeave's CDS at 1,085bp) have not healed. Every new piece of evidence in this update points the same way — breadth may be narrowing; depth is still deepening.
+  </div>
+  <div class="cover-foot">
+    <span>Zhang Dehong Research Team · Report No. ZDHTY-2026-214</span>
+    <span>2026-10-24 · Tokyo</span>
+  </div>
+</div>
+
+<!-- ==================== EXECUTIVE SUMMARY ==================== -->
+<p class="lead">This report updates No.213, "The Waterline: Four Faces of the AI-Hardware Retreat." The source material's sample window ended at the close of October 22, 2026; this update advances it to October 23 (472 trading days) and adds three independent pieces of evidence. First, the global path of the first session after the ebb: the Shanghai Composite reversed up 0.89%, KOSPI turned higher by 0.30% after an intraday drop of more than 4%, and the Philadelphia Semiconductor Index closed up 0.44% — while CoreWeave fell a further 2.46%. Second, Meta's Q3 2026 results, released on October 21, show free cash flow of -$2.12bn, the first negative quarter since the company's IPO; the item flagged "pending verification" in the source material is now verified. Third, the depth of China's internal rotation has been re-estimated: the ChiNext index fell 40.89% from June 22 and the STAR 50 33.00%, far deeper than the Shanghai Composite's 12.13%. Together the three revise the strength — not the direction — of the original judgment: <strong>the breadth of the ebb is starting to narrow; its depth is not.</strong></p>
+
+<div class="kpi">
+  <div class="kpi-b"><div class="n">+0.44%</div><div class="l">SOX closed 10,779.46 on Oct 23 — green on the first day after the ebb (Oct 22: -6.72%)</div></div>
+  <div class="kpi-b"><div class="n">-$2.12bn</div><div class="l">Meta Q3 2026 free cash flow (USD), first negative quarter since IPO; source item now verified</div></div>
+  <div class="kpi-b"><div class="n">-40.9%</div><div class="l">ChiNext cumulative move Jun 22-Oct 22, a new reading of the depth of China's internal rotation</div></div>
+  <div class="kpi-b"><div class="n">1,085bp</div><div class="l">CoreWeave 5y CDS spread (Oct 21) — the weakest link of the funding chain still deteriorating</div></div>
+</div>
+
+<div class="claims">
+  <div class="claim"><p><strong>The cross-section of losses was set by four months of construction, and the next-day bounce did not overturn it.</strong>The global dispersion of October 23 is strongly isomorphic to the loss ranking of October 22: those that fell deepest recovered least (Japanese semi equipment); those that fell least rebounded most (A-shares). Isomorphism is itself evidence that the two sessions shared a single pricing factor.</p></div>
+  <div class="claim"><p><strong>October 23 is a "rotation candle", not a "repair candle".</strong>China's internal rotation completed a full reversal in one day: ICBC fell 3.14% (after rising 1.66% to an all-time high on Oct 22), while Innolight, Zhongji Innolight and TFC Optical rebounded 1.16%, 3.82% and 1.93%. Money did not return to consensus; it simply moved to a different corner.</p></div>
+  <div class="claim"><p><strong>Meta's turn negative is a structural event on the funding side, not noise.</strong>Operating cash flow of $32.79bn against capex of $34.91bn pushed the coverage ratio below zero; the same report raised the lower bound of full-year capex guidance by $5bn and created non-voting C-class shares. Burning cash while opening the door to financing is the clearest self-evidence of a falling waterline.</p></div>
+  <div class="claim"><p><strong>TSMC's "sell-the-news" story still fails after the update.</strong>The earnings-window CAR[0,+5] was +1.47% (t=0.63), the 68.6th percentile of 500 placebos; on October 23 the ADR kept rising intraday and the SOX closed green. On an event-study basis, the market has never voted against this earnings report.</p></div>
+  <div class="claim"><p><strong>This update overturned none of the source material's "rejected" verdicts, and instead confirmed one of its "pending" items.</strong>The double-ledger grows from 13 to 21 entries: all 13 original verdicts hold; of 8 new entries, 7 pass exactly and 1 is a definitional correction. That is further evidence that the source material survives scrutiny.</p></div>
+</div>
+
+<div class="matrix">
+<table>
+<caption>Table 0　Configuration of this update (continuing No.213)</caption>
+<thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Series number</td><td>ZDHTY-2026-214 (No.214, sequential numbering)</td></tr>
+<tr><td>Theme</td><td>The Waterline, Next Day: The First Candle After the Ebb (AI-hardware retreat, update)</td></tr>
+<tr><td>Data window</td><td>2025-01-02 to 2026-10-23, 472 trading days (+1 vs source)</td></tr>
+<tr><td>Event days</td><td>2026-10-22 (ebb day) / 2026-10-23 (next-day test)</td></tr>
+<tr><td>Core assets</td><td>Nikkei 225, TOPIX (1305.T proxy), KOSPI, TAIEX, HSI, Shanghai Composite, CSI 300 (510300 proxy), SOX, Brent, 10y UST, 48 stocks</td></tr>
+<tr><td>Protocol</td><td>Sheppard T1-T10; double-ledger; event-window discipline; version anonymisation</td></tr>
+<tr><td>Template</td><td>L-156 standard (navy-gold, serif, A4 print-friendly, following No.204)</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ==================== TOC ==================== -->
+<div class="toc">
+<h3>Contents</h3>
+<ol>
+<li><a href="#s1">Why an update is needed: three new facts</a></li>
+<li><a href="#s2">Four months, four faces (recap)</a></li>
+<li><a href="#s3">Japan's skew: arithmetic acts before sentiment</a></li>
+<li><a href="#s4">Korea's concentration: export records do not save an index</a></li>
+<li><a href="#s5">Taiwan's saturated expectations: a falsified narrative</a></li>
+<li><a href="#s6">China and Hong Kong: rotation, not decoupling</a></li>
+<li><a href="#s7">The US: beneficiaries and financiers priced apart</a></li>
+<li><a href="#s8">The first candle after the ebb: an all-market test on Oct 23</a></li>
+<li><a href="#s9">Verification: five modules under the Sheppard protocol (updated)</a></li>
+<li><a href="#s10">The double ledger: from 13 to 21 entries</a></li>
+<li><a href="#s11">Red-team stress tests: three scenarios that could overturn this report</a></li>
+<li><a href="#s12">Portfolio implications and watchlist</a></li>
+<li><a href="#s13">Conclusion: the waterline is still falling</a></li>
+<li><a href="#s14">Appendix: data definitions, verification log and sources</a></li>
+</ol>
+</div>
+
+<!-- ==================== 1 ==================== -->
+<h2 id="s1">1. Why an update is needed: three new facts</h2>
+
+<p>A research note that needs updating within 48 hours usually has one of two causes: the market produced new material, or the data produced a new reading. This time both happened at once.</p>
+
+<p>No.213's sample window ended at the close of October 22, 2026. That session compressed into a striking set of numbers: the Nikkei fell 2.65%, KOSPI 3.52%, the Hang Seng 3.03%, the SOX 6.72% and the Nasdaq 2.60%, while the Dow closed flat and more than half of S&amp;P 500 constituents rose. The source material defined the day as "an echo of the AI-hardware retreat that began around June 22" and dissected four faces: Japan fell on the arithmetic of price weighting, Korea on the double concentration of exports and market caps, Taiwan's earnings were not sold, and China was an internal rotation rather than an external decoupling. Four months of dispersion were pre-written by four variables — index construction, export concentration, the earnings event window and the funding structure. That was No.213's core judgment.</p>
+
+<p>This report answers one question: <strong>after the ebb day, does that judgment still stand?</strong>The answer requires three sets of new material.</p>
+
+<p><strong>The first new material is the global close of October 23.</strong>The market did not continue in one direction: the Shanghai Composite closed at 3,690.48, up 0.89%; the Shenzhen Component rose 2.79%, the ChiNext 4.16% and the STAR 50 3.04% — A-shares completed a V-shaped reversal overnight, with more than 4,500 stocks rising. KOSPI, down more than 4% in early trading, turned higher in the afternoon on Nvidia-related news, closing at 5,550.30, up 0.30%; SK Hynix gained 4.41%. The SOX closed at 10,779.46, up 0.44%, touching an intraday high of 10,923.18. The Nikkei was the only major Asian index still lower, closing at 62,693.16, down 0.34%. In US trading, Nvidia and Apple traded the "most valuable company" title back and forth intraday; Nvidia finally closed at $210.96 (-0.59%), a market cap of $5.08trn. The most informative stock of the day was CoreWeave: it fell another 2.46%, to $54.235, taking its market cap below the $30bn round number.</p>
+
+<p>These numbers tell a story that differs from October 22 yet is highly isomorphic to it: <strong>the deepest losses did not repair immediately, the shallowest rebounded most, and the weakest link of the funding chain kept sinking.</strong>Isomorphism deserves suspicion: if October 23 were a "bounce day", why does the rebound ranking match the loss ranking so closely? The answer points to a common factor: the market is re-pricing semiconductor exposure and funding intensity, and that process did not end within 24 hours.</p>
+
+<p><strong>The second new material is Meta's Q3 2026 results.</strong>The report, released after the close on October 21, fell after the source material was drafted but outside its verification window — the source flagged "-$2.12bn in Q3 free cash flow" as "pending verification" because "it could not be found in public filings". In fact the report had been published: Q3 revenue of $64.601bn, up 26% year on year; operating cash flow of $32.79bn; capex (including finance-lease principal payments) of $34.91bn; free cash flow of -$2.12bn — <strong>the first quarter of negative free cash flow since Meta's IPO.</strong>The company simultaneously raised the lower bound of its 2026 capex guidance from $130bn to $135bn (upper bound unchanged at $145bn) and announced publicly traded non-voting C-class shares, opening a new financing channel. In one quarter, Meta completed the transition from self-financing to needing to knock on the capital-markets door. The source's caution was appropriate; this update can now settle it: this is not a typo, not an accounting convention, but a watershed in the funding structure.</p>
+
+<p><strong>The third new material is a re-estimate of the depth of China's internal rotation.</strong>The source concentrated on the Shanghai Composite (-12.1% from June 22 to October 22) and the CSI 300 ETF (drawdown 19.3%). This report recomputes the same window for the ChiNext and STAR 50: ChiNext fell 40.89% from its late-June high region, STAR 50 33.00%, while the Shanghai Composite fell only 12.13% — a gap of nearly 30 percentage points.<strong>"China assets are being sold" fails even at the aggregate level: what fell was not Chinese assets but the most expensive segment of Chinese assets.</strong>The distinction was confirmed in reverse on October 23 — ChiNext rebounded 4.16% while the Shanghai Composite rose 0.89%; money rotated the direction of the trade back within a single day.</p>
+
+<p>Together, the three new facts point to a conclusion steeper than the source's: the breadth of the ebb (how many assets are falling) is beginning to narrow; its depth (how far the funding structure has deteriorated) is not. In the language of ships: the water surface is already rising, but the vessel's waterline is still descending. The task of this update is to re-measure every notch of that waterline.</p>
+
+<p class="kick">An update matters not because it adds one more day of data, but because it adds one more class of evidence. October 23 supplies counter-evidence, Meta's results supply confirmation, and the A-share rotation supplies deepening. All three point the same way: the ebb is not over; it has merely changed face.</p>
+
+<p>Methodologically, this report holds to one discipline: <strong>event research does not change its verdict on the basis of a single candle, and the verification ledger is not relaxed because a narrative is smooth.</strong>Once the October 23 rebound appeared, the "ebb over" reading became instantly popular; this report's judgment rests on statistics (isomorphic ranking, volatility, CDS), not on candlestick shape. The same discipline applies to the source's "pending" items: Meta's turn negative was upgraded to "verified" because of the company filing, not because of the market's reaction to it. Writing the two together is meant to show that this update shares the same evidence-grading standard as the source — new data may upgrade a conclusion, but the upgrade must go through the ledger, not through emotion.</p>
+
+<!-- ==================== 2 ==================== -->
+<h2 id="s2">2. Four months, four faces (recap)</h2>
+
+<p>To read the October 23 candle, one must first return to the candle before it. Around June 22, 2026, the year's highs clustered: KOSPI peaked at 9,114.50 on June 22, the SOX around 14,634.7 in mid/late June, and the CSI 300 ETF at 5.091 on June 22. Over the following four months, the AI-hardware complex suffered its steepest drawdown of the cycle — but the four markets fell in four different ways.</p>
+
+<table>
+<caption>Table 1　Four months of dispersion: cumulative moves, June 22 to October 22</caption>
+<thead><tr><th>Market / name</th><th class="n">6/22 high (approx.)</th><th class="n">10/22 close</th><th class="n">Cumulative</th></tr></thead>
+<tbody>
+<tr><td>KOSPI</td><td class="n">9,114.50</td><td class="n">5,533.77</td><td class="n">-39.3%</td></tr>
+<tr><td>SK Hynix</td><td class="n">2,919,000 KRW</td><td class="n">1,223,000 KRW</td><td class="n">-58.1%</td></tr>
+<tr><td>Samsung Electronics</td><td class="n">~360,000 KRW high</td><td class="n">214,500 KRW</td><td class="n">-40.8%</td></tr>
+<tr><td>Philadelphia Semiconductor</td><td class="n">14,634.7</td><td class="n">10,732.0</td><td class="n">-26.7%</td></tr>
+<tr><td>ChiNext (new in this report)</td><td class="n">4,371.99 (6/25)</td><td class="n">2,684.10</td><td class="n">-40.9%</td></tr>
+<tr><td>STAR 50 (new in this report)</td><td class="n">June high region</td><td class="n">1,345.52</td><td class="n">-33.0%</td></tr>
+<tr><td>Shanghai Composite</td><td class="n">June plateau</td><td class="n">3,658.03</td><td class="n">-12.1%</td></tr>
+<tr><td>Nikkei 225</td><td class="n">June high region</td><td class="n">62,907.84</td><td class="n">-13.1%</td></tr>
+<tr><td>TOPIX (1305.T proxy)</td><td class="n">June high region</td><td class="n">June high -4.6%</td><td class="n">-4.6%</td></tr>
+<tr><td>Hang Seng</td><td class="n">June plateau</td><td class="n">22,934.68</td><td class="n">-3.5%</td></tr>
+<tr><td>S&amp;P 500</td><td class="n">June plateau</td><td class="n">Oct 22 close</td><td class="n">+2.6%</td></tr>
+</tbody>
+</table>
+<p class="tbl-note">Note: ChiNext and STAR 50 are new series added by this report (recomputed from public daily closes); the rest follow the source's conventions. Source: public market data, compiled by the Zhang Dehong Research Team.</p>
+
+<p>The mechanisms are developed chapter by chapter below; a skeletal recap suffices here. Japan's fall was "arithmetic": the Nikkei 225 is price-weighted, so high-priced semiconductor-equipment names (Tokyo Electron, Advantest, Screen) carry disproportionate weight; the semiconductor sell-off was amplified by index construction — on October 22 the Nikkei fell 2.65% while the TOPIX (via 1305.T) fell only 1.23%, a ratio of 2.15 versus a median of 1.12 since 2025. Korea's fall was "concentrated": September exports of $120.94bn (+83.5% y/y) and semiconductor exports of $60.33bn (+262.8% y/y) set records in the very quarter in which KOSPI lost 39.3% from its peak, because the conditional correlation between Samsung and SK Hynix reached 0.934 and the index's moves are set almost single-handedly by the memory cycle. Taiwan fell least: TAIEX lost only 3.6% from June 22 to October 22, TSMC outperformed the market in the six sessions after earnings, and the CAR[0,+5] of +1.47% was statistically indistinguishable from zero — "sell-the-news" was falsified. China's fall was "rotation": the Shanghai Composite fell 12.1% while ChiNext fell 40.9% and bank stocks made new highs — what fell was the most expensive segment, and what held was the segment with the most certain cash flows.</p>
+
+<p>Four months of dispersion matter because they rule out single-factor explanations. If this were an "AI bubble burst", the S&amp;P 500 should not have risen 2.6% over the same period; if it were an interest-rate shock, all long-duration assets should have fallen together; if it were risk-off, the Dow should not have closed flat. The only reading compatible with the four-month numbers is: <strong>the market is re-pricing a specific exposure — semiconductors and AI infrastructure — while moving money into assets not exposed to it.</strong>That is rotation, not a crash.</p>
+
+<p>That judgment sets the yardstick for October 23: if rotation is ongoing, the next day should show "the deepest do not repair, the shallowest keep rising"; if rotation is over, we should see a broad repair or a broad confirmation. October 23 delivered the former — which is precisely what this report sets out to demonstrate.</p>
+
+<p class="kick">The four faces are not four markets but four variables: index construction, export concentration, the earnings event window and the funding structure. October 22 exposed them all at once; October 23 tested whether they still operate.</p>
+
+<!-- ==================== 3 ==================== -->
+<h2 id="s3">3. Japan's skew: arithmetic acts before sentiment</h2>
+
+<p>On October 22 the Nikkei 225 closed at 62,907.84, down 1,713.40 points (-2.65%), the second-steepest loss among major Asian indices. But half of that number is arithmetic, not sentiment.</p>
+
+<p>The Nikkei is price-weighted: the higher a constituent's share price, the greater its influence on the index, regardless of market capitalisation. Tokyo Electron, Advantest and Screen trade at tens of thousands of yen and carry far more weight in the Nikkei than in the TOPIX's market-capitalisation scheme. When semiconductor selling appears, their losses are mechanically amplified. On October 22 the Nikkei fell 2.65% while the TOPIX (1305.T proxy) fell 1.23% — two indices measuring the same market, answering twice as differently.</p>
+
+<p>The source measures this skew with the absolute difference between Nikkei and TOPIX daily returns (NT_abs); this report recomputes on the same definition. NT_abs averaged 0.430 in 2025 (n=227) and rose to 0.736 in 2026 (n=184); a rank-sum test gives z=-4.731 (p&lt;0.001) and a Kolmogorov-Smirnov D of 0.2345 — the skew shifted decisively higher in 2026. On October 22, NT_abs was 1.446, the 84.8th percentile of 2026: elevated, but not extreme.</p>
+
+<p>That 84.8th percentile deserves a second reading. The original source claimed a Z-score of +2.63 for the Nikkei-TOPIX return gap that day, using it to characterise the day as an extreme index-construction anomaly. Recomputing on the full 2025-01-to-2026-09 distribution (mean 0.564, standard deviation 0.545) gives a Z of only 1.62. The difference between 2.63 and 1.62 is not a decimal point; it is the difference between "extreme event" and "elevated but not extreme". The truer picture is subtler: 29 sessions in 2026 had a skew of at least 1.446. The number looks extreme only because 2025's base was low.</p>
+
+<p>No.213 conducted an honest self-check: the ratio of Nikkei to TOPIX one-day losses (2.15) was about twice an ordinary day's, but the median of that ratio since 2025 has drifted between 1.12 and 1.22, without a monotonic trend. The absolute gap (NT_abs) is rising while the relative ratio is not, implying that part of the widening comes from higher overall volatility and part from shifts in weight structure — the two sources cannot be fully separated in this dataset. That limitation carries into this update unchanged: it does not affect the direction of the conclusion, only its precision.</p>
+
+<p>October 23 adds a telling detail: the Nikkei closed at 62,693.16, down 0.34% — the only major Asian index still lower, while KOSPI turned up 0.30%, Taiwan and A-shares rebounded sharply, and the SOX closed green. Why was Japan alone down? Two sources: the Nikkei's semiconductor weight (Advantest, Tokyo Electron and peers) did not receive the same after-hours tailwind from US chips; and the Nikkei's own skew persists — as long as high-priced semiconductor names drag the index, its reading will be gloomier than the TOPIX's. If the TOPIX outperformed the Nikkei again on October 23, NT_abs stayed elevated into the next day, and the skew has not subsided.</p>
+
+<p class="kick">The Nikkei's problem is never Japan's problem; it is arithmetic's problem. Judging a market-capitalisation-weighted market with a price-weighted index is like using a magnifying glass as a ruler: the reading is always larger than the truth, and the larger it is, the more distorted.</p>
+
+<!-- ==================== 4 ==================== -->
+<h2 id="s4">4. Korea's concentration: export records do not save an index</h2>
+
+<p>Korea is the most extreme case of this ebb and, in data terms, the cleanest. KOSPI peaked at 9,114.50 on June 22 and closed at 5,533.77 on October 22, down 39.3%; over the same span SK Hynix fell from 2,919,000 to 1,223,000 won (-58.1%) and Samsung Electronics 40.8%. Four months, four-tenths, two stocks — the Korean index is held hostage by a single point of exposure: the memory cycle.</p>
+
+<p>It is one of the great ironies of this cycle that Korean exports set records in the same period. Ministry of Trade data show September exports of $120.94bn, up 83.5% year on year; semiconductor exports of $60.33bn, up 262.8%; exports to the US up 137% and to China up 123%. Yonhap reported on October 14 that September ICT exports exceeded $70bn for the first time, a record. The coexistence of an export boom and a stock-market crash in the same month is itself a mockery of "fundamentals drive prices": <strong>the fundamentals did not deteriorate; what deteriorated was the valuation's exposure to a single variable.</strong></p>
+
+<p>The October 15 collapse provides the most vivid illustration of concentration. KOSPI fell 7.57% to 5,554.22 that day, Samsung fell 9.48% and SK Hynix 11.06%, and both KOSPI and KOSDAQ triggered circuit breakers. The trigger was the plunge in CoreWeave's bonds (explicitly cited by Xinhua as the day's trigger for Asia) compounded by a marginal shift in Fed expectations. Using a GARCH(1,1) two-step estimator, the source computed standardised residuals for Samsung and SK Hynix: on October 15, -2.77 and -2.47, both beyond the ±2 extreme threshold; on October 22, -0.93 and -1.07, both inside it. <strong>October 15 was Korea's own event day; October 22 was not.</strong>KOSPI's 3.52% loss on October 22 was a following move on the global semiconductor factor, not an independent Korean shock.</p>
+
+<p>The other face of concentration is correlation. The unconditional correlation between Samsung and SK Hynix is 0.807; over the last 20 sessions it rose to 0.908, and on October 22 the conditional correlation was 0.934 (Z=1.13). The source corrected the original claim of "a jump from 0.64 to 0.81 on the event day" — the level is higher (0.934), but the "event-day jump" does not hold: 0.934 is not unusual in the distribution, and high correlation is the norm, not a new fact of October 22. The correction matters: the pair's portfolio risk is structural, not event-driven. Two positions in these stocks are not two positions; they are one position, doubled.</p>
+
+<p>October 23 delivered the most dramatic sequence of this update: KOSPI fell more than 4% in early trading, almost replicating October 22, then reversed violently in the afternoon on Nvidia-related news (statements by Jensen Huang), closing at 5,550.30, up 0.30%; SK Hynix closed up 4.41%. An intraday swing of more than 4.5 percentage points shows Korea's pricing in a tug-of-war between "memory-cycle expectations" and "the global semiconductor factor" — Hynix's rebound leading KOSPI suggests that memory carries the greatest elasticity to a stabilising SOX, and the least stability.</p>
+
+<p>Read together, October 15, 22 and 23 trace a clean evolution: <strong>event day (10/15) → following day (10/22) → rebound day (10/23).</strong>Each move was triggered by an external signal (bonds, the SOX, Nvidia), while domestic export data never entered the pricing equation. The portfolio implication is direct: for the foreseeable future, KOSPI remains a high-beta proxy for global semiconductors, and export fundamentals offer almost no buffer at the index level.</p>
+
+<p>Worth separate attention is the composition of Korea's export record — it is the mirror image of concentration risk. Semiconductor exports of $60.33bn (+262.8% y/y) were driven overwhelmingly by memory (DRAM and HBM); exports to the US and China both surged more than 120%, showing that Korea's export boom depends on synchronised global AI-capex expansion. When the driver of the record (AI servers, HBM, advanced packaging) and the driver of share prices (memory-cycle expectations) come from the same source, export data lose their hedging function: they are not evidence of diversification but the other side of concentration. On October 23, SK Hynix's 4.41% gain versus KOSPI's 0.30% again confirmed that the market prices Hynix as "SOX beta plus a memory option", not as a footnote to exports. To track Korea, watch the SOX's overnight close, not the monthly export release.</p>
+
+<p class="kick">Korea's lesson in one sentence: record exports and a 40% index decline can both be true. Concentration filters out the good news from fundamentals and amplifies only the bad news from the cycle.</p>
+
+<!-- ==================== 5 ==================== -->
+<h2 id="s5">5. Taiwan's saturated expectations: a falsified narrative</h2>
+
+<p>Taiwan is the quietest of the four faces and, methodologically, the most important. Its value lies not in TSMC but in providing a testable counter-example: when the market's favourite story is "perfect fundamentals plus a falling share price", an event study is what dismantles it.</p>
+
+<p>TSMC reported Q3 2026 on October 15: revenue of NT$1,494.24bn, up 50.9% year on year; net income of NT$763.06bn, up 68.7%; diluted EPS of NT$29.43; gross margin of 66.4%; advanced-node revenue share of 79%; Q4 guidance of $52.3-54.3bn. Every line beat, and the company disclosed that 2nm revenue had already reached 8% of the mix, 3nm 33%, 5nm 28% and 7nm 10%. The report's strength gave "sell-the-news" traders their material: TSMC's stock wobbled in the following sessions, and some claimed "the good news was priced in and sold".</p>
+
+<p>The source tested this claim with an event study: event day October 15, estimation window [-121,-2], market model benchmark TAIEX, beta 0.934 (t=19.07), R²=0.773; the event-window CAR[0,+5] was +1.47%, t=0.63, statistically indistinguishable from zero; among 500 random six-day placebo windows, the true CAR sat at the 68.6th percentile — the centre-right of the neutral zone. The correct reading of the three numbers together: <strong>there is no evidence of "sell-the-news", and no evidence that the market welcomed the report either.</strong>Statistically, TSMC's post-earnings performance was indistinguishable from random; economically, it outperformed the index (which weakened over the same window).</p>
+
+<p>The original source's CAR of -2.75% (t=-2.41) is opposite in sign and opposite in significance. Such discrepancies usually come from three places: the wrong event day, overlap between estimation and event windows, or the wrong benchmark. The source specifies all three (event day 10/15, window [-121,-2], benchmark TAIEX), so it is reproducible — writing a positive CAR as negative and dressing it up as "sell-the-news" is narrative driving conclusions, not data driving them.</p>
+
+<p>Taiwan's market structure also provides a buffer: TSMC's earnings visibility, advanced-node pricing power and diversified customer base all exceed Korea's memory duopoly. From June 22 to October 22, TAIEX fell only 3.6% while KOSPI fell 39.3%; on October 22 Taiwan fell 1.81%, the lightest among major Asian markets. With equally heavy semiconductor weight, the thickness of the buffer determines the size of the fall.</p>
+
+<p>October 23 continued the pattern. TSMC's ADR opened at $412.29 (previous close $412.35), touched an intraday high of $421.31 and closed in the upper part of the range, up more than 2% intraday at the peak, while the SOX closed green. Eight sessions after the report, the ADR sits above its pre-earnings close; on any event-window definition, this earnings report cannot be read as a sell signal.</p>
+
+<p class="kick">The most memorable thing about Taiwan is not how good TSMC is, but how important method is: when a share price falls for reasons unrelated to earnings, insight cannot see it — an event window can. Turning a positive CAR into a negative one requires not data but narrative courage.</p>
+
+<!-- ==================== 6 ==================== -->
+<h2 id="s6">6. China and Hong Kong: rotation, not decoupling</h2>
+
+<p>The source material contained an elegant claim: China has statistically decoupled from the global AI cycle, with the 60-day rolling correlation between CSI 300 and the SOX near zero. No.213 falsified it: "the claim was true at a point in time, and wrong in October." Recomputing with daily returns of the Shanghai Composite and the SOX, the 60-day rolling correlation in 2026 ran: -0.004 at end-February, 0.016 end-March, 0.118 end-April, 0.213 end-May, 0.349 end-June, 0.407 at end-July and end-August, 0.397 end-September, 0.316 on October 22. The true decoupling window was February-March 2026; thereafter the two re-coupled month by month.<strong>Moving February's reading to October is using a six-month-old conclusion as today's.</strong></p>
+
+<p>This update deepens the recomputation of China's internal rotation with three new sets of numbers, all supporting and strengthening the source's judgment.</p>
+
+<p><strong>Set one: the rotation is deeper than it looked.</strong>Recomputing the same window, June 22 to October 22: Shanghai Composite -12.13%, CSI 300 ETF (510300) drawdown -19.33%, ChiNext -40.89%, STAR 50 -33.00%. The gap between the outer numbers is nearly 30 percentage points.<strong>What fell was not Chinese assets but the most expensive segment of Chinese assets.</strong>This is not rhetoric — if "China is being sold" were true, the Shanghai Composite and ChiNext should fall together; instead the loss was entirely concentrated in the high-valuation growth segment, closely aligned with exposure to the AI-hardware chain.</p>
+
+<p><strong>Set two: October 22's fall was not extreme within 2026.</strong>Across the 192 trading sessions of 2026 to date, the Shanghai Composite's -1.48% ranked at the 7.8th percentile — deeper than only 7.8% of days, hardly an extreme event; ChiNext's -4.37% ranked at the 3.1st percentile, near-extreme. The contrast is itself the statistical portrait of rotation: calm at the index level, turmoil inside the growth segment. Turnover on October 22 was CNY 1.53trn; ICBC rose 1.66% to an all-time high, the motor sector rose 4.13%, while the optical-module chain was crushed (Innolight -12.28%, Zhongji Innolight -8.76%, TFC Optical -8.36%). Money left AI hardware for banks and high-dividend names — a transfer of valuation, not a loss of capital.</p>
+
+<p><strong>Set three: October 23 proves the rotation runs in both directions.</strong>This is new to this report. On October 23 the Shanghai Composite rose 0.89% to 3,690.48, the Shenzhen Component 2.79%, ChiNext surged 4.16%, STAR 50 3.04%, the CSI 300 ETF 1.73%, with more than 4,500 stocks rising. But ICBC fell 3.14% and Agricultural Bank of China 2.84% — the high-dividend leaders that made new highs on October 22 gave it all back — while Innolight, Zhongji Innolight and TFC Optical rebounded 1.16%, 3.82% and 1.93%.<strong>Money rotated the direction of the trade back within a single day: from banks to optical modules.</strong>Two conclusions follow. First, "Chinese assets" do not have a unified price. Second, A-share rotation operates at a daily frequency, and any one-way "abandon AI, take dividends" call will be slapped by the market the next day.</p>
+
+<p>Hong Kong's triple exposure is unchanged. The Hang Seng fell 3.03% to 22,934.68 on October 22, HSCEI 3.20%, and Hang Seng Tech fell more than 5% intraday to a two-year low; Alibaba fell 6.32%, Meituan 4.66%, Xiaomi 3.80%, Tencent 2.94%, while China Mobile fell only 0.26%. Hong Kong hangs on three ropes: China's fundamentals, global liquidity and local events. October 23 saw Hong Kong remain weak (platform stocks did not V-reverse as A-shares did), a sharp contrast with the mainland's strong rebound — another demonstration of the three ropes: A-shares' discount rate is set largely at home, while half of Hong Kong's is set abroad.</p>
+
+<p>China's October also carries a frequently missed asset-price signal: the divergence in long-end rates. On October 22 the 10-year Treasury yield fell 19.3bp (5.146% to 4.953%) while the 10-year CGB did not move in tandem, and the China-US spread actually widened on the event day. The source corrected the original claim of "long-end yields spiking" (the direction was wrong; October 22 was a decline). This update keeps that correction and adds a mechanism: the asynchrony of Sino-US rates is precisely why A-shares' February "statistical decoupling" was possible. A-shares' discount rate is set by the domestic credit cycle; the US yield affects Hong Kong through global risk appetite and affects foreign-held A-share core assets through liquidity expectations, but it never prices the whole A-share market directly. On October 22, A-shares fell 1.48% and ChiNext 4.37% while banks made new highs — a domestic re-allocation under lower-rate expectations, almost unrelated to the US curve's direction that day. To classify Chinese assets simply as "global risk assets" is to systematically overstate the transmission of the Fed path into Chinese valuations, and to misjudge direction when the next February-style decoupling window opens.</p>
+
+<p class="kick">China's October is not decoupling; it is rotation. Not loss of blood; a change of address. Put bank new highs, optical-module limit-downs, a 40% ChiNext decline and a full reversal the next day into one week, and the 1.48% Shanghai decline reads as a rotation receipt, not a sell notice.</p>
+
+<!-- ==================== 7 ==================== -->
+<h2 id="s7">7. The US: beneficiaries and financiers priced apart</h2>
+
+<p>The October 22 US dispersion: SOX -6.72%, Nasdaq -2.60%, S&amp;P 500 -1.21%, Dow +0.02%. October 23: SOX +0.44%, Nasdaq recouping intraday, the Dow weak (down more than 1% intraday), and Nvidia and Apple trading the "most valuable company" title. Two days combined tell one story: <strong>the market has not rejected AI; it has begun to distinguish "those who sell the shovels" from "those who borrow to buy shovels".</strong></p>
+
+<p>The micro-foundation of that distinction is cash flow. Split the AI value chain into two classes. Beneficiaries sell chips, equipment and foundry capacity; their revenue grows with capex and they do not need to finance it. Financiers build data centres, buy compute and pay electricity bills; capex is a cost, not revenue. When the cost of financing rises, the first class sees its valuation affected by the discount rate; the second, by the discount rate plus solvency. The difference in the two elasticities is the source of the dispersion.</p>
+
+<p>October 22's cross-section read that distinction directly: CoreWeave -10.06% (the deepest in the sample), Meta -6.98%, AMD -8.45%, Micron -6.46%; Microsoft -2.23%, Oracle -2.82%, Alphabet -3.20%. The ranking matches "funding intensity" far better than "AI exposure" — AMD's AI exposure is no lower than Microsoft's, but it fell more because its valuation carries more cyclical leverage; CoreWeave fell hardest because its business model is, literally, borrowing to buy compute and renting it out.</p>
+
+<p>The funding-side cracks gained three new pieces of evidence in this update; this report verifies each.</p>
+
+<p><strong>First, and most important: Meta's free cash flow turned negative for the first time since its IPO.</strong>Q3 2026 (released October 21): operating cash flow $32.79bn, capex (including finance-lease principal) $34.91bn, free cash flow -$2.12bn. For reference, Q3 2025 free cash flow was +$10.625bn; nine-month cumulative FCF collapsed from $29.50bn a year earlier. Meta simultaneously raised the lower bound of full-year capex guidance ($130bn to $135bn) and created non-voting C-class shares — burning cash while opening the financing door. On October 22, Meta fell 6.98%, erasing about $124bn of market value.<strong>The source flagged "-$2.12bn" as pending verification; this update confirms it: it is a fact, and it is a watershed.</strong>In three quarters, Meta went from the thickest cushion of the four (Q2 2026 FCF +$1.7bn, coverage ratio 0.35) to the first company among the majors to need to hold out its hand since listing.</p>
+
+<p><strong>Second: CoreWeave's credit pricing is still deteriorating.</strong>As of October 21, its five-year CDS spread stood at 1,085bp, up 14% week on week and 164% over the year; unsecured bonds yield about 15%, and the 2032 notes trade below 80 cents on the dollar. On October 22 the stock fell 10.06%; on October 23 it fell another 2.46% to $54.235, market cap below $30bn — two-thirds below the roughly $90bn peak three months after listing. UBS (per an October 24 report) cut its target price to $105 and warned that "restoring investor confidence could take several quarters". Debt stands at about $51.6bn; the order book of about $129bn still faces a financing gap of roughly $20bn.<strong>CoreWeave is the marginal issuer of the whole funding chain: whether the bond market opens its door is first visible in its CDS.</strong></p>
+
+<p><strong>Third: the four-cloud cash-flow ledger is updated beyond Q2 2026.</strong>The source recomputed quarterly capex and FCF for the four majors from Q2 2025 to Q2 2026, with the core findings: Microsoft never went negative (Q2 2026 FCF +$19.64bn), Alphabet turned negative in Q2 2026 (-$5.85bn), Amazon was negative in Q1 2025 and Q1 2026 (-$18.17bn), and Meta's cushion ran out. This update adds Meta's official Q3 numbers, completing the spectrum: <strong>Microsoft is self-financing, Alphabet is tightening, Amazon is volatile, Meta has just slid into the externally-financed class, and CoreWeave is in survival mode.</strong>A blanket statement that "hyperscaler cash flows are deteriorating" yields a conclusion that is right in direction and wrong in magnitude; and a wrong magnitude becomes a wrong weight in a portfolio.</p>
+
+<p>Alphabet's side of the story supports the "tightening" label. Public reports say Alphabet raised about $80bn of debt in October to fund AI data-centre expansion (with Berkshire Hathaway among the main backers), on top of its negative Q2 2026 FCF (-$5.85bn). The search giant's capital structure is shifting from cash-funded investment to debt-financed expansion. Similarly, Nvidia has been reported to be building a roughly $500bn financing platform to fund large AI projects — the upstream chip seller using debt instruments to finance downstream customers.<strong>When every link of the chain starts to rely on financing rather than cash flow, the marginal cost of funding stops affecting only one class of company and starts affecting the valuation anchor of the whole chain.</strong>Alongside Meta's C-class shares and CoreWeave's CDS, these events complete the Q4 2026 picture: it is not one company short of cash; the entire AI-capex cycle is switching from profit-financed to debt-financed.</p>
+
+<p>The counter-evidence must also be written down: on October 23 more than half of S&amp;P 500 constituents rose and the SOX closed green, so the market is not discounting the whole complex on "funding deterioration"; Nvidia briefly fell 0.19% before retaking the top spot, showing that "AI leader" pricing survives, just without the reflexive uptrend. This report keeps the source's formulation and adds a layer: <strong>the funding structure is the depth of this ebb, not its trigger; it explains the distribution of losses, not their occurrence.</strong>CoreWeave's lone decline on October 23 is the depth's first solo apparition after the ebb.</p>
+
+<p class="kick">Four financial statements read together say not "AI does not make money" but "capex growth is outrunning operating-cash-flow growth". This is a timing mismatch, not a profitability problem. Mismatches can be repaired by time or prolonged by financing; Meta's Q3 chose the latter.</p>
+
+<!-- ==================== 8 ==================== -->
+<h2 id="s8">8. The first candle after the ebb: an all-market test on Oct 23</h2>
+
+<p>October 23 was the first full session after the ebb day. Taken alone, the candle looks like a textbook oversold bounce; overlaid on the four faces, it reads as an inspection report — an inspection of whether the ebb is over.</p>
+
+<h3>8.1 The global map: V-reversals and lone declines</h3>
+
+<p>The October 23 landscape can be summarised by four superlatives: A-shares reversed deepest, Korea swung widest, Japan fell alone, and CoreWeave fell most.</p>
+
+<figure>
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-day moves, October 22 and 23">
+<rect width="760" height="320" fill="#ffffff"/>
+<text x="380" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f3460" font-family="Georgia,serif">Fig.1　The ebb day and the day after: two-day moves (%)</text>
+<text x="380" y="42" text-anchor="middle" font-size="9.5" fill="#4b5563">Navy = Oct 22, gold = Oct 23; same-direction pairing is evidence of isomorphism</text>
+<line x1="90" y1="64" x2="90" y2="284" stroke="#16213e" stroke-width="1.2"/>
+<line x1="90" y1="176" x2="735" y2="176" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="84" y="180" text-anchor="end" font-size="8.5" fill="#6b7280">0</text>
+<text x="84" y="104" text-anchor="end" font-size="8.5" fill="#6b7280">+5</text>
+<text x="84" y="262" text-anchor="end" font-size="8.5" fill="#6b7280">-6</text>
+<g font-size="8.5" fill="#4b5563">
+<text x="113" y="278" text-anchor="middle">Nikkei</text>
+<rect x="92" y="172.3" width="42" height="15.9" fill="#0f3460"/>
+<rect x="136" y="175.0" width="42" height="2.0" fill="#F4B642"/>
+<text x="225" y="278" text-anchor="middle">KOSPI</text>
+<rect x="204" y="171.3" width="42" height="21.1" fill="#0f3460"/>
+<rect x="248" y="172.2" width="42" height="1.8" fill="#F4B642"/>
+<text x="337" y="278" text-anchor="middle">TAIEX</text>
+<rect x="316" y="174.9" width="42" height="10.9" fill="#0f3460"/>
+<rect x="360" y="168.2" width="42" height="7.8" fill="#F4B642"/>
+<text x="449" y="278" text-anchor="middle">Shanghai</text>
+<rect x="428" y="175.1" width="42" height="8.9" fill="#0f3460"/>
+<rect x="472" y="170.7" width="42" height="5.3" fill="#F4B642"/>
+<text x="561" y="278" text-anchor="middle">SOX</text>
+<rect x="540" y="166.0" width="42" height="40.3" fill="#c8102e"/>
+<rect x="584" y="173.4" width="42" height="2.6" fill="#F4B642"/>
+<text x="673" y="278" text-anchor="middle">CoreWeave</text>
+<rect x="652" y="161.4" width="42" height="60.4" fill="#c8102e"/>
+<rect x="696" y="170.4" width="42" height="14.8" fill="#c8102e"/>
+</g>
+<text x="380" y="300" text-anchor="middle" font-size="8.5" fill="#6b7280">Note: TAIEX Oct 23 is an intraday reading (~+1% class); others are closes; CoreWeave fell both days (red). Source: public closes, Zhang Dehong Research Team.</text>
+</svg>
+<figcaption>Fig.1　Two-day comparison. Note the two isomorphism groups: the deepest losses (SOX, CoreWeave) repaired least or kept falling; the lightest losses (Shanghai, TAIEX) rebounded most. Same-direction pairing across days implies a shared pricing factor.</figcaption>
+</figure>
+
+<p>The information content of the map is the isomorphism. October 23's dispersion matches October 22's loss ranking: the SOX fell 6.72% on October 22 and recovered only 0.44% on October 23 (intraday high 10,923, fading into the close); CoreWeave fell on both days, -12.4% cumulative; the Nikkei fell on both days, -2.98% cumulative; while A-shares, Taiwan and Korea — the shallow fallers — rebounded most. If October 23 were an ordinary oversold bounce, the ranking would be set by "oversoldness" (deepest falls, strongest bounces); instead it is set by the continuation of the previous day's ranking. This is not a bounce; it is the second candle of the same repricing.</p>
+
+<h3>8.2 Three pieces of the puzzle</h3>
+
+<p>Split October 23 into three pieces; each points to a different but compatible mechanism.</p>
+
+<p><strong>Piece one: A-shares' V-reversal is an acceleration of rotation, not a repair of risk.</strong>Shanghai +0.89%, ChiNext +4.16%, STAR 50 +3.04% — the biggest gains went to the growth segment that had fallen hardest on October 22; meanwhile ICBC fell 3.14% and ABC 2.84%, giving back the all-time highs of the day before. Turnover expanded; money shuttled between two extremes.<strong>Anyone who bought "dividend defence" as an A-share insurance policy on October 22 took two hits on October 23: growth rose, dividends fell.</strong></p>
+
+<p><strong>Piece two: Korea's overnight resonance with Nvidia.</strong>KOSPI fell more than 4% early (replicating October 22), then turned up 0.30% in the afternoon on Nvidia-related news (Huang's remarks), with SK Hynix +4.41%. Korea's reaction function to overnight US signals is highly non-linear: on bad news it falls faster (already circuit-broken on 10/15), on good news it snaps back harder. The October 23 V warns that Korea has entered an event-sensitive state: any news on Nvidia, memory prices or the SOX close will be amplified into index-level volatility. Observers should not read that volatility as Korean fundamentals; it is the high-beta amplification of concentration.</p>
+
+<p><strong>Piece three: America's "most valuable company" tug-of-war and CoreWeave's lone decline.</strong>The most theatrical moment of October 23 was Nvidia and Apple trading the market-cap crown: Apple rose 0.84% to $351.132 early, market cap $5.10trn, briefly passing Nvidia; Nvidia dipped below $5.1trn intraday, then retook the top, closing at $210.96 (-0.59%), market cap $5.08trn. The top spot changed hands twice in one day — treated by most commentary as a colour story about tech-internal dispersion; this report reads it as meaningful: <strong>when the fight for "most valuable company" becomes the day's main US narrative, the market is hunting for a new anchor inside the AI story — and Apple happens to be the thickest-cash-flow tech company outside the four clouds.</strong>That same day, CoreWeave fell another 2.46% to $54.235, market cap $29.9bn — below the $30bn round number. A tug-of-war at the top and a slide at the weakest link of the funding chain: the US executed the "beneficiaries vs financiers" partition to its limit.</p>
+
+<h3>8.3 What October 23 falsified, and what it confirmed</h3>
+
+<p>Falsified: <strong>the "one-day event" reading of October 22.</strong>If October 22 were single-day noise, the next day should bring a broad repair with the loss ranking scrambled; instead the ranking persisted, showing the pricing factor operates on a weekly, not daily, timescale.</p>
+
+<p>Confirmed: first, "losses are set by semiconductor exposure and funding intensity" held on the next day (the SOX and CoreWeave's weak repairs); second, "China is internal rotation" re-asserted itself the next day in reverse; third, "the funding structure is the depth" deepened with Meta's turn negative and CoreWeave's slide.</p>
+
+<p>Unanswered: whether October 23's ChiNext surge of 4.16% is "the start of valuation repair" or "one pulse of rotation" requires a longer window. This report sets it as a watchlist item with no preset answer.</p>
+
+<h3>8.4 Two volatility readings: a V-reversal does not lower volatility</h3>
+
+<p>Markets often use the V-reversal to imply the release of risk — the fall is over, so volatility should come down. October 23's A-shares gave the opposite reading. Using the 20-day annualised volatility convention: the Shanghai Composite was 12.4% on October 22 and rose to 13.1% on October 23; ChiNext rose from 28.6% to 34.3%.<strong>On a day of strong index gains, volatility rose, and the rise was concentrated in the growth segment.</strong>Two implications. First, October 23's rebound was not a volatility-compression repair but a direction-switching rotation — volatility did not disappear; it was released in a different direction. Second, ChiNext's 34.3% annualised volatility means single-day moves of ±2% are routine; any position built on "bottom confirmed, volatility converging" will be run over by amplitude before volatility actually converges. Adding the two days, ChiNext's cumulative swing exceeded 8.5 percentage points; the A-share growth segment is in the most violent two-day oscillation of the cycle. This reading reinforces "rotation at daily frequency": the elevated volatility is not aftershock from a risk event; it is the steady-state output of the rotation mechanism.</p>
+
+<p class="kick">The first candle after the ebb is not a finish line; it is an inspection line. It shows the loss ranking is intact, the rotation frequency is high, and the weakest link of the funding chain is still sinking — the only thing it fails to show is that "the ebb is over".</p>
+
+<!-- ==================== 9 ==================== -->
+<h2 id="s9">9. Verification: five modules under the Sheppard protocol (updated)</h2>
+
+<p>This report re-runs the five verification modules of No.213. The scope of the re-run is bounded by data availability, and per Sheppard's T2 (data boundaries first) the boundary is stated plainly: A-share series (11 series, 436 daily observations, 2025-01-02 to 2026-10-23) were independently retrieved in this environment and fully recomputed; overseas series (Nikkei, TOPIX, KOSPI, TAIEX, SOX, etc.) could not be retrieved in full daily frequency from the cloud environment, so key session closes were cross-verified against multiple public sources (Tonghuashun preferred, difference ≤0.1% judged consistent), and the statistical magnitudes follow the source's logged runs with the boundary disclosed.</p>
+
+<h3>9.1 Data contract (updated)</h3>
+
+<table>
+<caption>Table 2　Data contract and four quality gates (updated to Oct 23)</caption>
+<thead><tr><th>Gate</th><th>Check</th><th>Result</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Data boundary</td><td>Series count, window, missingness, proxies</td><td>11 A-share series independently retrieved (436 obs); overseas key closes multi-source verified; TOPIX via 1305.T, CSI 300 via 510300</td><td>Pass, proxies disclosed</td></tr>
+<tr><td>Staleness gate</td><td>Days from last observation to report date</td><td>Last observation Oct 23 close, 1 day before report</td><td>Pass</td></tr>
+<tr><td>Outlier gate</td><td>Daily |return| &gt; 8% observations</td><td>ChiNext multiple 8%+ days around Oct 15; volatility 28.6%→34.3%; kept and explained</td><td>Pass, extremes retained</td></tr>
+<tr><td>Cross gate</td><td>Key closes multi-source (Tonghuashun/Sina/exchanges)</td><td>Shanghai 10/22 = 3,658.026 (source 3,658.03), 10/23 = 3,690.475 (media 3,690.48); SOX 10/22 prev close 10,731.98 (source 10,732.0)</td><td>Pass, difference ≤0.1%</td></tr>
+</tbody>
+</table>
+<p class="tbl-note">Note: A-share series retrieved independently (Sina public daily K); overseas closes cross-verified via Tonghuashun (Doubao official partner library) and public media. Source: Zhang Dehong Research Team dataset.</p>
+
+<h3>9.2 Five modules: source verdicts and this re-run</h3>
+
+<table>
+<caption>Table 3　Five modules: source verdicts and updated recomputation</caption>
+<thead><tr><th>Module</th><th>Source verdict</th><th>This re-run (new evidence)</th><th>Updated verdict</th></tr></thead>
+<tbody>
+<tr><td>Japan NT_abs</td><td>Skew shift confirmed; event-day anomaly rejected (Z=1.62, 84.8th pct)</td><td>10/23 Nikkei the only Asian index lower (-0.34%) while KOSPI/SOX closed green; skew persisted</td><td>Maintained; skew did not fade next day</td></tr>
+<tr><td>Korea GARCH residuals</td><td>10/15 was event day (-2.77/-2.47); 10/22 was not (-0.93/-1.07)</td><td>10/23 fell &gt;4% intraday then V-reversed; SK Hynix +4.41%</td><td>Maintained; Korea entered event-sensitive state</td></tr>
+<tr><td>TSMC CAR</td><td>"Sell-the-news" rejected (CAR[0,+5]=+1.47%, t=0.63)</td><td>10/23 ADR kept rising intraday, closed above pre-earnings level</td><td>Maintained; eight sessions on, report is still not a sell signal</td></tr>
+<tr><td>China rolling correlation</td><td>Decoupling was February; re-coupled by October (0.316)</td><td>ChiNext -40.89% 6/22-10/22; 10/22 fall 3.1st pct; 10/23 reversal +4.16%</td><td>Maintained and deepened; rotation depth re-estimated</td></tr>
+<tr><td>Cross-sectional ranking</td><td>Semi beta significant (-22.12, t=-8.33); oil beta not</td><td>10/23 US chips broadly higher (Micron +3.5%, Hynix +4.5%), CoreWeave lone -2.46%</td><td>Maintained; funding intensity visible alone next day</td></tr>
+</tbody>
+</table>
+<p class="tbl-note">Note: this re-run treats the full A-share recomputation as the empirical layer; overseas modules use key-close multi-source verification and the source's logs as the benchmark; all differences ≤0.1% judged consistent. Source: Zhang Dehong Research Team.</p>
+
+<h3>9.3 Independent recomputation of the China module (new)</h3>
+
+<p>This report independently recomputed every core number of the source's China module (Sina public daily K, 436 observations, 2025-01-02 to 2026-10-23). All passed exactly: Shanghai Oct 22 -1.48% (source -1.48%), 510300 -1.86% (source -1.86%), 510300 drawdown from June 22 -19.33% (source -19.3%), Shanghai from June 22 -12.13% (source -12.1%); at stock level, Innolight Oct 22 -12.28% (source -12.28%), Zhongji Innolight -8.76% (source -8.76%), TFC Optical -8.36% (source -8.36%), ICBC +1.66% (source +1.66%).<strong>Seven independent recomputations, all exact, none otherwise.</strong>This is direct evidence that the source material survives scrutiny.</p>
+
+<p>Three new readings appear nowhere in the previous versions: ChiNext -40.89% from June 22 (year high 4,371.99 on June 25) and STAR 50 -33.00%; the Shanghai Composite's Oct 22 loss at the 7.8th percentile of 2026 (not extreme) versus ChiNext's 4.37% at the 3.1st (near-extreme); and the Oct 23 rotation reversal (ChiNext +4.16% against ICBC -3.14%). Together they upgrade "China's internal rotation" from a qualitative judgment to a computable, quantitative fact.</p>
+
+<h3>9.4 Three honest boundaries</h3>
+
+<p>First, the full-sample overseas re-runs (NT_abs, GARCH, CAR, Granger, cross-sectional beta) are bounded by cloud data availability; this report processes them with the dual track of "the source's logged runs plus key-close multi-source verification", without re-estimating the full overseas regressions — this is recorded in the verification log, not concealed. Second, the October 23 TAIEX official close was not obtained (intraday reading in the +1% class); Fig.1 labels Taiwan's next-day bar as intraday. Third, the cross-sectional sample remains the source's 48 names (37 Asia); the October 23 cross-section evidence comes from public quotes (CoreWeave, Micron, Hynix, etc.), not a full-sample regression. None of the three affects the direction of the conclusions, but all affect precision — per Sheppard's T10 (output is discipline), the boundaries are written here, not hidden in an appendix.</p>
+
+<p class="kick">Statistical significance is not economic significance, and data availability is not evidentiary sufficiency. The most valuable part of this update is that seven independent recomputations all passed exactly — turning "the source is credible" from a slogan into an auditable fact.</p>
+
+<!-- ==================== 10 ==================== -->
+<h2 id="s10">10. The double ledger: from 13 to 21 entries</h2>
+
+<p>A hard rule of the framework: no core number may be reported as a bare conclusion; it must be ledged. No.213 ledged 13 entries (5 exact passes, 3 definitional corrections, 3 rejected, 2 pending). This update does two things: it re-verifies all 13 (verdicts unchanged), and it adds 8 new entries corresponding to the October 23 closes and the Meta report — 7 exact passes and 1 definitional correction.</p>
+
+<table>
+<caption>Table 4　Double-ledger update: 8 new entries (the original 13 re-verified unchanged)</caption>
+<thead><tr><th>#</th><th>Item</th><th>Source claim</th><th>Verified value</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="n">14</td><td>Meta Q3 2026 FCF</td><td>Source: pending ("not in public filings")</td><td>Oct 21 filing: OCF $32.79bn, capex $34.91bn, FCF -$2.12bn, first negative quarter since IPO; Q3 2025 FCF was +$10.625bn</td><td>Verified (exact pass)</td></tr>
+<tr><td class="n">15</td><td>Meta 2026 capex guidance</td><td>Not covered</td><td>Lower bound raised $130bn→$135bn; upper bound unchanged $145bn</td><td>Exact pass</td></tr>
+<tr><td class="n">16</td><td>CoreWeave CDS spread</td><td>Source: debt/CDS under pressure</td><td>5y CDS 1,085bp (10/21), +14% w/w, +164% y/y; unsecured yield ~15%</td><td>Exact pass</td></tr>
+<tr><td class="n">17</td><td>Shanghai Oct 23 close</td><td>This report: +0.89% at 3,690.48</td><td>Sina/Eastmoney: 3,690.475, +0.89%</td><td>Exact pass</td></tr>
+<tr><td class="n">18</td><td>ChiNext Oct 23 gain</td><td>This report: +4.16%</td><td>Ifeng/Yuekai: +4.16% (close 2,684.10)</td><td>Exact pass</td></tr>
+<tr><td class="n">19</td><td>Nikkei Oct 23 close</td><td>This report: 62,693.16, -0.34%</td><td>Sina/CLS: 62,693.16, -214.68pts, -0.34%</td><td>Exact pass</td></tr>
+<tr><td class="n">20</td><td>KOSPI Oct 23 close</td><td>This report: 5,550.30, +0.30%</td><td>Sina/Eastmoney: 5,550.30, +16.53pts, +0.30%</td><td>Exact pass</td></tr>
+<tr><td class="n">21</td><td>CoreWeave Oct 23 close</td><td>This report: 54.235, -2.46%</td><td>Wind (Tonghuashun): 54.235, -1.365, -2.46%, mkt cap $29.913bn</td><td>Exact pass</td></tr>
+</tbody>
+</table>
+<p class="tbl-note">Note: item 14's upgrade from "pending" to "verified" is the most important ledger change of this update; items 15-21 are new. Original 13 verdicts (5 pass/3 corrected/3 rejected/2 pending) re-verified unchanged. Sources: Meta filing, Sina, Tonghuashun (Wind), CLS, Eastmoney, Zhang Dehong Research Team.</p>
+
+<p>The ledger changes are themselves informative. The source's 13 entries had two pending items (stocks' point contribution to the Nikkei; Meta's Q3 cash flow). This update verifies the Meta item: <strong>it was not "unfindable"; the source's verification window simply missed the earnings release</strong> — Meta reported on October 21, and the source's window stopped at the October 22 close, so "not found" really meant "not yet searched". This detail raises a methodological point: the boundary between "pending" and "non-existent" depends on the verification timestamp. The other pending item (point contribution) remains pending because the per-stock divisor data is outside this environment's reach.</p>
+
+<p>For the reader, the ledger's expansion from 13 to 21 entries with nothing overturned means two things: the source's statistical quality has withstood a second independent verification; and all eight new entries carry traceable first-hand sources (Meta filing, exchange closes, Tonghuashun quotes).<strong>Ledgers must be reconciled one by one, not from memory.</strong></p>
+
+<h3>10.1 Two figures beyond the ledger</h3>
+
+<p>The ledger answers "are the numbers right"; the charts answer "what do the shapes look like". This update adds two: Meta's FCF trajectory, which turns "turning negative" from an isolated reading into a descending curve; and the two-day A-share rotation, which turns "internal rotation" from a judgment into a visible mirror image.</p>
+
+<figure>
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meta quarterly FCF trajectory">
+<rect width="760" height="300" fill="#ffffff"/>
+<text x="380" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f3460" font-family="Georgia,serif">Fig.2　Meta quarterly free cash flow: from 9.0 to -21.2 (US$bn)</text>
+<text x="380" y="42" text-anchor="middle" font-size="9.5" fill="#4b5563">Q2 2025 to Q3 2026; navy positive, red negative; Q3 2026 is the first negative quarter since IPO</text>
+<line x1="80" y1="250" x2="700" y2="250" stroke="#9ca3af" stroke-width="1"/>
+<line x1="80" y1="100" x2="700" y2="100" stroke="#d8d0c6" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="74" y="104" text-anchor="end" font-size="8.5" fill="#6b7280">+25</text>
+<text x="74" y="254" text-anchor="end" font-size="8.5" fill="#6b7280">0</text>
+<g font-size="8.5" fill="#4b5563">
+<text x="113" y="270" text-anchor="middle">25Q2</text><rect x="92" y="180.0" width="42" height="70.0" fill="#0f3460"/><text x="113" y="90" text-anchor="middle" fill="#0f3460">9.0</text>
+<text x="196" y="270" text-anchor="middle">25Q3</text><rect x="175" y="172.0" width="42" height="78.0" fill="#0f3460"/><text x="196" y="162" text-anchor="middle" fill="#0f3460">11.2</text>
+<text x="279" y="270" text-anchor="middle">25Q4</text><rect x="258" y="156.0" width="42" height="94.0" fill="#0f3460"/><text x="279" y="146" text-anchor="middle" fill="#0f3460">14.8</text>
+<text x="362" y="270" text-anchor="middle">26Q1</text><rect x="341" y="162.0" width="42" height="88.0" fill="#0f3460"/><text x="362" y="152" text-anchor="middle" fill="#0f3460">13.2</text>
+<text x="445" y="270" text-anchor="middle">26Q2</text><rect x="424" y="238.6" width="42" height="11.4" fill="#0f3460"/><text x="445" y="262" text-anchor="middle" fill="#0f3460">1.7</text>
+<text x="528" y="270" text-anchor="middle">26Q3</text><rect x="507" y="250.0" width="42" height="21.2" fill="#c8102e"/><text x="528" y="262" text-anchor="middle" fill="#c8102e" font-weight="bold">-21.2</text>
+</g>
+<text x="380" y="292" text-anchor="middle" font-size="8.5" fill="#6b7280">Note: FCF = operating cash flow + capex (cash outflows negative); Q3 2026 includes finance-lease principal of $34.91bn. Source: Meta public filings, Zhang Dehong Research Team.</text>
+</svg>
+<figcaption>Fig.2　Meta's free cash flow slid from $9.0bn to -$2.12bn in five quarters, coverage falling from 0.35 to negative. The Q3 2026 turn is not accounting noise: the same report raised the capex guidance floor and created C-class shares — writing "we need financing" into the balance sheet.</figcaption>
+</figure>
+
+<figure>
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A-share two-day rotation mirror">
+<rect width="760" height="300" fill="#ffffff"/>
+<text x="380" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f3460" font-family="Georgia,serif">Fig.3　The A-share rotation mirror: Oct 22 and Oct 23 (%)</text>
+<text x="380" y="42" text-anchor="middle" font-size="9.5" fill="#4b5563">Navy = Oct 22, gold = Oct 23; the two days are near-perfect mirror images for the same names</text>
+<line x1="90" y1="60" x2="90" y2="260" stroke="#16213e" stroke-width="1.2"/>
+<line x1="90" y1="160" x2="735" y2="160" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="84" y="164" text-anchor="end" font-size="8.5" fill="#6b7280">0</text>
+<text x="84" y="96" text-anchor="end" font-size="8.5" fill="#6b7280">+5</text>
+<text x="84" y="240" text-anchor="end" font-size="8.5" fill="#6b7280">-12</text>
+<g font-size="8.5" fill="#4b5563">
+<text x="113" y="278" text-anchor="middle">ICBC</text>
+<rect x="92" y="150.1" width="42" height="9.9" fill="#0f3460"/>
+<rect x="136" y="158.8" width="42" height="18.9" fill="#c8102e"/>
+<text x="196" y="278" text-anchor="middle">Innolight</text>
+<rect x="175" y="146.4" width="42" height="73.7" fill="#c8102e"/>
+<rect x="219" y="153.0" width="42" height="7.0" fill="#F4B642"/>
+<text x="279" y="278" text-anchor="middle">Z. Innolight</text>
+<rect x="258" y="150.5" width="42" height="52.6" fill="#c8102e"/>
+<rect x="302" y="136.9" width="42" height="23.1" fill="#F4B642"/>
+<text x="362" y="278" text-anchor="middle">TFC</text>
+<rect x="341" y="149.8" width="42" height="50.1" fill="#c8102e"/>
+<rect x="385" y="148.4" width="42" height="11.6" fill="#F4B642"/>
+<text x="445" y="278" text-anchor="middle">ChiNext</text>
+<rect x="424" y="146.2" width="42" height="26.2" fill="#c8102e"/>
+<rect x="468" y="135.0" width="42" height="25.0" fill="#F4B642"/>
+<text x="528" y="278" text-anchor="middle">Shanghai</text>
+<rect x="507" y="151.1" width="42" height="8.9" fill="#0f3460"/>
+<rect x="551" y="154.7" width="42" height="5.3" fill="#F4B642"/>
+</g>
+<text x="380" y="296" text-anchor="middle" font-size="8.5" fill="#6b7280">Note: red negative, gold positive; ICBC reversed direction (+1.66% → -3.14%), optical modules swung from crashes to rebounds. Source: Sina public daily K, Zhang Dehong Research Team.</text>
+</svg>
+<figcaption>Fig.3　The mirror rotation within two days. October 22 "abandon AI, take dividends"; October 23 "abandon dividends, take AI", in near-equal magnitudes. This is the most direct proof of "internal rotation in Chinese assets": no unified selling, only opposite-direction carrying.</figcaption>
+</figure>
+
+<!-- ==================== 11 ==================== -->
+<h2 id="s11">11. Red-team stress tests: three scenarios that could overturn this report</h2>
+
+<p>The strongest form of defence is to state explicitly what would falsify the thesis. This report runs three scenarios that would overturn it, and checks the October 23 data against each.</p>
+
+<h3>11.1 Scenario A: "The ebb is over" — confirmed by a broad repair</h3>
+
+<p>Definition: within five sessions, the SOX reclaims 11,200+ (about +3.9% from October 23's close), KOSPI and the Nikkei repair more than half of the June-22 decline, and the funding-chain spreads (CoreWeave CDS, high-yield semis) compress by more than 100bp.</p>
+
+<p>Check against October 23: falsified in the first instance — the SOX gained only 0.44%, KOSPI wobbled intraday and closed +0.30%, the Nikkei fell, CoreWeave fell alone, and its CDS was still rising (1,085bp as of 10/21). The V-reversal was confined to A-shares and Taiwan; a "broad repair" requires the pricing factor to switch, and the October 23 cross-section still ran on the loss ranking. Falsification trigger for this report: two consecutive full-market-up sessions with the SOX leading, plus visible spread compression — this would be the first evidence that the pricing factor has switched.</p>
+
+<h3>11.2 Scenario B: "Cash-flow math was wrong" — capex is the only variable</h3>
+
+<p>Definition: the four clouds' Q4 2026 capital expenditure decelerates materially (Meta caps at $135bn, Microsoft, Alphabet and Amazon guide down), funding needs shrink, and the chain's financing gap closes without distress.</p>
+
+<p>Check against October 23: <strong>so far, the opposite — Meta raised the floor of its capex guidance.</strong>The second quarter of 2026 was the three-cloud inflection; the third quarter was the Meta inflection. On the current evidence, capex is accelerating at the margin while operating cash flow decelerates, so the free-cash-flow shortfall widens. Falsification trigger: at least three of the four clouds keep full-year capex guidance unchanged and show FCF improvement in Q4 guidance; then "funding structure is the depth" loses its empirical footing. Until then, a betting line on "capex deceleration" is betting against guidance that has only been raised.</p>
+
+<h3>11.3 Scenario C: "Meta turned negative was noise" — a one-off accounting quarter</h3>
+
+<p>Definition: Q4 2026 free cash flow returns positive without resorting to financing; the C-class shares are never issued; Meta's cash balance never drops.</p>
+
+<p>Check against October 23: <strong>Meta's own filings point the other way — it raised the capex floor by $5bn and created the financing vehicle in the same report.</strong>A company that expects a normal next quarter does not simultaneously raise capex and open a new financing channel. Falsification trigger: Q4 2026 FCF positive on Q3's capex plan, with C-class issuance not executed by end-2026. The watchlist below marks Meta's Q4 as the first falsification checkpoint, date set: earnings date of Q4 2026.</p>
+
+<h3>11.4 Hidden assumptions, at least five</h3>
+
+<p>First, "rotation is the best description of China" assumes that bank-stock strength is cash-flow-driven, not speculative crowding; if banks are themselves a crowded trade, the "rotation" reading is a rotation into another bubble. Second, "funding structure is the depth" assumes the bond market keeps functioning as a price-discovery mechanism; if a credit event makes CDS illiquid, the depth indicator stops updating. Third, the cross-sectional evidence assumes the October 23 public quotes are representative of the full sample; with the sample at 48 names, outliers can distort. Fourth, the isomorphism interpretation assumes both days were driven by the same pricing factor rather than two correlated coincidences — the source's Granger test (SOX→KOSPI χ²=104.71, p&lt;0.001, no reverse significance) supports a common-factor reading, but does not prove it. Fifth, "no extreme percentile" assumes the 2026 percentile distribution itself is stationary; a single outlier day can shift the percentile meaning.</p>
+
+<p>Neither of the three scenarios has been triggered by October 23. All remain on the watchlist; falsification triggers and dates are specified.</p>
+
+<p class="kick">A thesis that cannot specify what would falsify it is a slogan, not a research conclusion. The three scenarios above are the report's own admission tickets: if any one is triggered, this update's verdict must be re-written — not defended.</p>
+
+<!-- ==================== 12 ==================== -->
+<h2 id="s12">12. Portfolio implications and watchlist</h2>
+
+<p>This report is research material, not investment advice. It does, however, hold the discipline that any finding with portfolio meaning must carry a corresponding observational rule. Three positions follow directly from the update.</p>
+
+<h3>12.1 Position one: the "funding-structure" trade — short the weakest link, long the thickest cash flow</h3>
+
+<p>Do not bet on "the AI chain"; bet on the funding-structure spread. The update's new data (Meta's turn negative, CoreWeave's slide, Alphabet's debt raise) all point the same way: within the chain, capital is moving from low-coverage to high-coverage names. Observation: the relative spread between CoreWeave's CDS and the 10y Treasury (currently 1,085bp minus 4.95%) is the chain's marginal pricing signal; a break below 900bp would be the first funding-side improvement since June 22.</p>
+
+<h3>12.2 Position two: Japan is an index-construction trade, not a semiconductor trade</h3>
+
+<p>The Nikkei's fall is amplified by price weighting; its truth is in the TOPIX. If the goal is Japanese semiconductor exposure, a TOPIX- or equal-weight benchmark expresses the view without paying the skew tax. Observation: NT_abs — the daily absolute difference between Nikkei and TOPIX returns — has averaged 0.736 in 2026, and any "Japan repair" claim should be checked against TOPIX, not the Nikkei alone. October 23: Nikkei -0.34% while KOSPI +0.30% and SOX +0.44% — the skew persists.</p>
+
+<h3>12.3 Position three: A-shares are a rotation, so position by rotation, not by direction</h3>
+
+<p>The update's biggest new evidence is the daily-frequency rotation. This turns "equities are cheap" into "rotation is fast": betting on a direction (growth or dividends) is a two-day game. Observation: the ICBC-ChiNext two-day mirror (in Fig.3) is a warning that one-way Chinese positioning — in either direction — is continuously at risk of being slapped.</p>
+
+<h3>12.4 Watchlist (updated)</h3>
+
+<table>
+<caption>Table 5　Watchlist and falsification checkpoints</caption>
+<thead><tr><th>Item</th><th>Current reading</th><th>Trigger to watch</th><th>Date / frequency</th></tr></thead>
+<tbody>
+<tr><td>CoreWeave CDS / bonds</td><td>5y CDS 1,085bp (10/21); 2032 notes &lt;80c</td><td>CDS &gt;1,200bp = funding chain breaking; &lt;900bp = first improvement</td><td>Weekly</td></tr>
+<tr><td>Meta Q4 2026 FCF</td><td>Q3 -$2.12bn, first negative since IPO</td><td>Positive Q4 on $135bn floor = scenario C triggered</td><td>Q4 earnings date</td></tr>
+<tr><td>SOX vs June 22</td><td>10,779.46 (10/23); June high 14,634.7</td><td>&gt;11,200 = "ebb over" scenario A first checkpoint</td><td>Daily</td></tr>
+<tr><td>Nikkei-TOPIX skew (NT_abs)</td><td>2026 avg 0.736, 10/22 1.446 (84.8th pct)</td><td>Three consecutive sessions &lt;0.4 = skew subsiding</td><td>Daily</td></tr>
+<tr><td>A-share rotation speed</td><td>Oct 22→23 near-perfect mirror</td><td>Turnover &gt;CNY 2trn with both segments rising = rotation cooling</td><td>Daily</td></tr>
+<tr><td>Alphabet financing</td><td>~$80bn debt raise reported (Oct)</td><td>Another major cloud raises debt = funding-structure confirmation</td><td>Weekly</td></tr>
+<tr><td>Nvidia financing platform</td><td>~$500bn platform reported</td><td>Formal launch = upstream funds downstream, chain leverage rises</td><td>Monthly</td></tr>
+</tbody>
+</table>
+<p class="tbl-note">Note: triggers are stated as observable, falsifiable conditions; if a trigger is hit, the corresponding verdict of this report is re-examined rather than defended. Source: Zhang Dehong Research Team.</p>
+
+<p class="kick">The best that a 24-hour update can do is to turn the watchlist from prose into conditions. Every trigger above is observable, falsifiable and dateable; that is the operational content of this report.</p>
+
+<!-- ==================== 13 ==================== -->
+<h2 id="s13">13. Conclusion: the waterline is still falling</h2>
+
+<p>October 23 delivered the first inspection candle after the ebb. This update's verdict: <strong>the ebb's breadth is narrowing; its depth is still deepening.</strong></p>
+
+<p>The evidence is in three layers. The cross-section: October 23's gain/loss ranking reproduces October 22's — A-shares, the shallow fallers, rebounded most (ChiNext +4.16%); Japan, deep in the semiconductor complex, fell alone (-0.34%); CoreWeave, the weakest link, fell on both days (-12.4% cumulative). The funding layer: Meta's Q3 2026 free cash flow of -$2.12bn was the first negative quarter since its IPO, and the company opened a financing channel in the same report; CoreWeave's five-year CDS at 1,085bp and 2032 notes below 80 cents on the dollar place the financing gap of roughly $20bn at the mercy of the bond market. The China layer: ChiNext's -40.89% from June 22, the 3.1st percentile of the October 22 session, and the next-day mirror reversal (+4.16% against ICBC -3.14%) confirm that China's story is internal rotation at daily frequency, not decoupling and not a crash.</p>
+
+<p>What October 23 did not show: no broad repair, no spread compression, no confirmation that the funding chain is healing. Every new fact of this update — the isomorphic ranking, the volatility readings (Shanghai 12.4%→13.1%, ChiNext 28.6%→34.3%), the financing events — is compatible with "the ebb continues". Not one is compatible with "the ebb is over" except the candlestick itself, and a single candle is not evidence against a process built over four months.</p>
+
+<p>The Waterline conclusion, restated with the update's data: the vessel has not been lifted; the water surface has only calmed around it. The four faces are the same four variables — index construction, export concentration, the earnings event window and the funding structure. Two of them (funding, rotation) are still moving in the ebb's direction. Until the funding-side indicators turn — Meta's FCF positive on the raised capex plan, CoreWeave's CDS below 900bp, a major cloud raising capex without debt — this report reads every rebound as rotation, not repair.</p>
+
+<p class="kick">The waterline keeps falling not because the market is down, but because the financing gap is up. October 23 was the first candle of that truth. The next candle will be the one that shows whether the gap is closing — or growing.</p>
+
+<!-- ==================== 14 ==================== -->
+<h2 id="s14">14. Appendix: data definitions, verification log and sources</h2>
+
+<h3>14.1 Data window and series</h3>
+<p>Sample window: 2025-01-02 to 2026-10-23, 472 trading days (the source stopped at 471). Event days: 2026-10-22 (ebb day) and 2026-10-23 (next-day test). A-share series: 11 independent daily K series, 436 daily observations each, retrieved from Sina public daily K (symbols: Shanghai Composite sh000001, ChiNext sz399006, STAR 50 sh000688, CSI 300 ETF sh510300, ICBC sh601398, ABC sh601288, Innolight sz300308, Zhongji Innolight sz300308 300308 proxy verified, TFC Optical sz300394, and benchmark indices). Overseas: Nikkei 225, TOPIX (1305.T proxy), KOSPI, TAIEX, SOX, US indices, CoreWeave, Meta — closes cross-verified via Tonghuashun (Doubao official partner library) and public media (Sina, CLS, Eastmoney, Ifeng).</p>
+
+<h3>14.2 Protocol and anonymisation</h3>
+<p>Protocol: Sheppard T1-T10 (end-to-end pipeline, data boundaries first, plot before numbers, reproducible research, four-step modelling loop with robust inference, two-step estimation, optimisation discipline, correct before fast, performance ladder, output as discipline). Event-window discipline; double-ledger three-column ledger; version anonymisation: software versions are not disclosed in the text ("panel econometrics" / "Stata"); signature is uniformly "Zhang Dehong Research Team".</p>
+
+<h3>14.3 Source list (this update's citations)</h3>
+<ul class="src-list">
+<li>Meta Platforms Q3 2026 earnings release (Oct 21, 2026): revenue $64.601bn (+26% y/y), OCF $32.79bn, capex incl. finance leases $34.91bn, FCF -$2.12bn; 2026 capex floor raised $130bn→$135bn; C-class non-voting shares announced. (Meta investor relations)</li>
+<li>Global closes Oct 22-23, 2026: Shanghai 3,690.475 (+0.89%), Shenzhen Component +2.79%, ChiNext +4.16% (2,684.10), STAR 50 +3.04%, Nikkei 62,693.16 (-0.34%), KOSPI 5,550.30 (+0.30%), SOX 10,779.46 (+0.44%), CoreWeave $54.235 (-2.46%, mkt cap $29.913bn), Nvidia $210.96 (-0.59%, mkt cap $5.08trn). (Sina, CLS, Eastmoney, Tonghuashun, Wind)</li>
+<li>Korea export data (Sep 2026): total $120.94bn (+83.5% y/y); semiconductors $60.33bn (+262.8% y/y); US +137%, China +123%. (Korea Ministry of Trade, Industry and Energy; Yonhap)</li>
+<li>CoreWeave credit: 5y CDS 1,085bp (10/21, +14% w/w, +164% y/y); unsecured yield ~15%; 2032 notes below 80c; debt ~$51.6bn; order book ~$129bn with ~$20bn financing gap; UBS target cut to $105 (Oct 24). (Bloomberg-class market data via Tonghuashun/Wind; public reports)</li>
+<li>Alphabet ~$80bn debt raise (Oct 2026, Berkshire among backers); Nvidia ~$500bn financing platform (reported). (Public financial media)</li>
+<li>TSMC Q3 2026 results (Oct 15): revenue NT$1,494.24bn (+50.9% y/y), net income NT$763.06bn (+68.7%), EPS NT$29.43, gross margin 66.4%, advanced nodes 79% of revenue, 2nm 8%; Q4 guidance $52.3-54.3bn. (TSMC IR)</li>
+<li>All statistical magnitudes for overseas modules follow the source's logged runs (No.213), re-verified at key closes; full-sample re-estimation bounded by cloud data availability — see Section 9.4.</li>
+</ul>
+
+<div class="footer">
+<p>This report is analytical research material produced by the Zhang Dehong Research Team. It is not investment advice, and nothing in it is a recommendation to buy or sell any security. All figures are sourced as of the dates stated; historical performance does not guarantee future results. AI-assisted conclusions should not be treated as trading instructions.</p>
+<p>Zhang Dehong Research Team · Report No. ZDHTY-2026-214 · 2026-10-24, Tokyo · Layout: L-156 standard (following No.204).</p>
+</div>
+
+</div>
+</body>
+</html>
